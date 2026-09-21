@@ -56,3 +56,23 @@ texto: editar, guardar un commit, ejecutar la acción y revisar el resultado.
 La siguiente tanda prioriza tarjeta social/JSON-LD, después devcontainer y
 comprobación del entorno, y después publicación propia con URL base derivada.
 Galería, Discussions y mantenimiento periódico quedan para después de la charla.
+
+## Corrección posterior al push: imagen identificada por contenido
+
+- El PDF identificaba cada imagen con un nombre derivado de su ruta absoluta
+  (`FormXob.<hash>`), de modo que dos copias del repositorio en carpetas
+  distintas producían documentos con bytes distintos y el mismo contenido.
+- `crear_pdf.py` entrega ahora los bytes de la imagen a ReportLab. El resultado
+  no depende de la ubicación del clon ni del directorio de trabajo.
+- Prueba añadida: el mismo Markdown e imagen, generados desde dos carpetas
+  temporales con nombres distintos, producen PDF idénticos. 15 pruebas.
+- `ejemplos/salida-esperada/informe.pdf` se regenera con este cambio.
+- Queda disponible, si se desea, comparar en Actions una ejecución nueva con la
+  salida de referencia; conviene generar esa referencia en el mismo entorno.
+
+## Documentos de entrega ya cumplidos
+
+`PUBLICAR.md`, `ACTUALIZAR.md` y `PARCHE-FUENTES.md` describen migraciones
+terminadas. Consolidar su parte vigente (publicación, Zenodo, mantenimiento de
+fuentes) en un único documento, o moverlos a `docs/`, deja la raíz más clara
+para quien copie la plantilla.

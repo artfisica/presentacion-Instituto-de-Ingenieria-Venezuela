@@ -73,6 +73,20 @@ class PdfTest(unittest.TestCase):
             crear_pdf(source, pdf)
             self.assertNotEqual(changed_text, pdf.read_bytes())
 
+    def test_mismo_contenido_en_otra_carpeta_produce_el_mismo_pdf(self):
+        # Dos copias del repositorio, en rutas distintas, deben generar bytes
+        # idénticos: la reproducibilidad no puede depender de dónde se trabaje.
+        salidas = []
+        for nombre in ('copia-uno', 'copia-dos'):
+            with tempfile.TemporaryDirectory(dir=ROOT/'.tmp', prefix=nombre) as temp:
+                carpeta = Path(temp)
+                imagen, source, pdf = carpeta/'foto.jpg', carpeta/'informe.md', carpeta/'informe.pdf'
+                Image.new('RGB', (80, 40), 'blue').save(imagen)
+                source.write_text('# Informe\n\nTexto.\n\n![Ejemplo](foto.jpg)\n', encoding='utf-8')
+                crear_pdf(source, pdf)
+                salidas.append(pdf.read_bytes())
+        self.assertEqual(*salidas)
+
     def test_imagen_ausente_produce_error_claro(self):
         with tempfile.TemporaryDirectory(dir=ROOT/'.tmp') as temp:
             source = Path(temp)/'informe.md'

@@ -6,6 +6,7 @@ It intentionally does not implement tables, raw HTML or fenced code blocks.
 """
 import argparse
 from html import escape
+from io import BytesIO
 from pathlib import Path
 import re
 import unicodedata
@@ -108,9 +109,13 @@ def crear_pdf(entrada, salida):
             path = (entrada.parent/relative).resolve()
             if not path.is_relative_to(ROOT) or not path.is_file():
                 raise ValueError(f'Imagen local inexistente o fuera del proyecto: {relative}')
-            width, height = ImageReader(str(path)).getSize()
+            datos = path.read_bytes()
+            width, height = ImageReader(BytesIO(datos)).getSize()
             scale = min(1, 475/width, 235/height)
-            story.append(KeepTogether([Image(str(path), width*scale, height*scale), Spacer(1, 7), parrafo_validado(caption, styles['CaptionSmall'], numero)]))
+            # Los bytes, y no la ruta del ordenador, identifican la imagen dentro
+            # del PDF: dos copias del repositorio producen el mismo documento.
+            imagen = Image(BytesIO(datos), width*scale, height*scale)
+            story.append(KeepTogether([imagen, Spacer(1, 7), parrafo_validado(caption, styles['CaptionSmall'], numero)]))
         elif match_heading:
             flush()
             story.append(parrafo_validado(match_heading[2], styles[f'Heading{len(match_heading[1])}'], numero))
