@@ -1,0 +1,36 @@
+name: 02 - Crear grafico
+
+on:
+  push:
+    paths:
+      - 'datos/**'
+      - 'scripts/analizar.py'
+      - 'scripts/graficar.py'
+      - 'requirements.txt'
+      - '.github/workflows/02-graficar.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ejecutar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Instalar dependencias
+        run: python -m pip install -r requirements.txt
+      - name: Ejecutar el ejemplo
+        run: |
+          python scripts/graficar.py
+      - name: Guardar resultados para descargar
+        uses: actions/upload-artifact@v7
+        with:
+          name: grafico
+          path: |
+            resultados/grafico.png
+          if-no-files-found: error
+          retention-days: 14

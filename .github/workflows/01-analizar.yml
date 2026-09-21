@@ -1,0 +1,35 @@
+name: 01 - Analizar datos
+
+on:
+  push:
+    paths:
+      - 'datos/**'
+      - 'scripts/analizar.py'
+      - 'tests/test_analizar.py'
+      - '.github/workflows/01-analizar.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ejecutar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Ejecutar el ejemplo
+        run: |
+          python -m unittest discover -s tests -p test_analizar.py -v
+          python scripts/analizar.py
+      - name: Guardar resultados para descargar
+        uses: actions/upload-artifact@v7
+        with:
+          name: analisis
+          path: |
+            resultados/resumen.json
+            resultados/informe.html
+          if-no-files-found: error
+          retention-days: 14
