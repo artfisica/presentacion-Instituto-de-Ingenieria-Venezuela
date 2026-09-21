@@ -1,5 +1,22 @@
 # De los datos abiertos al conocimiento compartido
 
+[![Análisis](https://github.com/artfisica/presentacion-Instituto-de-Ingenieria-Venezuela/actions/workflows/01-analizar.yml/badge.svg)](https://github.com/artfisica/presentacion-Instituto-de-Ingenieria-Venezuela/actions/workflows/01-analizar.yml)
+[![Gráfico](https://github.com/artfisica/presentacion-Instituto-de-Ingenieria-Venezuela/actions/workflows/02-graficar.yml/badge.svg)](https://github.com/artfisica/presentacion-Instituto-de-Ingenieria-Venezuela/actions/workflows/02-graficar.yml)
+[![PDF](https://github.com/artfisica/presentacion-Instituto-de-Ingenieria-Venezuela/actions/workflows/03-pdf.yml/badge.svg)](https://github.com/artfisica/presentacion-Instituto-de-Ingenieria-Venezuela/actions/workflows/03-pdf.yml)
+[![Web](https://github.com/artfisica/presentacion-Instituto-de-Ingenieria-Venezuela/actions/workflows/pages.yml/badge.svg)](https://github.com/artfisica/presentacion-Instituto-de-Ingenieria-Venezuela/actions/workflows/pages.yml)
+[![Licencias: MIT + CC BY 4.0](https://img.shields.io/badge/licencias-MIT%20%2B%20CC%20BY%204.0-blue)](LICENSE)
+
+## Empieza aquí: de 25 a 26
+
+1. Crea tu copia con **Use this template → Create a new repository**, si el botón está disponible. Puedes usar **Fork** si prefieres mantener el vínculo con futuras actualizaciones; habilita Actions en tu fork si GitHub lo pide.
+2. En `datos/mediciones.csv`, cambia el primer **24** por **30** y guarda el commit.
+3. Abre **Actions → 01 - Analizar datos**. El resumen de la ejecución mostrará el promedio **26**, mínimo **23** y máximo **30**, sin descargar ningún archivo.
+
+El repositorio incluye los tres ejercicios. Para ejecutarlos localmente empieza con `python3 scripts/analizar.py`; la instalación completa está más abajo.
+
+![Formación con ATLAS Open Data en Venezuela. Crédito: ATLAS Collaboration / CERN.](web/assets/atlas-venezuela.webp)
+
+
 **Computación, automatización e inteligencia artificial para investigar y aprender.**
 
 Charla en línea de Arturo Rodolfo Sánchez Pineda para el Instituto de Ingeniería, Venezuela.
@@ -38,13 +55,13 @@ Las automatizaciones están en `.github/workflows/`. Puedes empezar editando los
 | El mismo CSV o el script del gráfico | **02 - Crear grafico** | Una imagen PNG. |
 | `ejemplos/informe.md` o una imagen en `imagenes/` | **03 - Crear PDF** | Un PDF actualizado con texto e imágenes. |
 
-También puedes ejecutar cualquiera desde **Actions → nombre del ejercicio → Run workflow**. Descarga su resultado desde **Artifacts**, dentro de la ejecución terminada. Se conserva durante 14 días. Estas tres acciones generan archivos descargables y no crean commits.
+También puedes ejecutar cualquiera desde **Actions → nombre del ejercicio → Run workflow**. El resumen de cada ejecución muestra los números o el número de páginas y un enlace de descarga. **Artifacts** conserva la copia completa. Se conserva durante 14 días. Estas tres acciones generan archivos descargables y no crean commits.
 
 **[Empieza por la guía de los tres ejercicios](ejercicios/README.md).** El primer cambio consiste en sustituir un 24 por un 30 y comprobar que el promedio cambia de 25 a 26.
 
 ## Desde el navegador
 
-Haz **Fork** de este repositorio para tener tu copia. Entra en **Actions** y habilita sus flujos si GitHub te lo pide. Edita un dato o el Markdown y guarda el cambio: los ejercicios correspondientes se ejecutan automáticamente.
+Usa **Use this template** cuando esté habilitado para crear tu propio proyecto. Si deseas seguir las actualizaciones de este repositorio, utiliza **Fork**; en ese caso habilita sus flujos en **Actions** si GitHub te lo pide. Edita un dato o el Markdown y guarda el cambio: los ejercicios correspondientes se ejecutan automáticamente.
 
 No necesitas instalar Python para esta vía. Una cuenta de GitHub te permite tener tu copia; revisa las condiciones y cuotas de los servicios que utilices. La publicación de la web está separada de los tres ejercicios y solo se activa en el repositorio de Arturo.
 
@@ -78,10 +95,28 @@ Sustituye los datos, formula una pregunta, adapta el script y documenta tus fuen
 
 ## Para Arturo
 
-[PUBLICAR.md](PUBLICAR.md) contiene los comandos exactos para subir este paquete al repositorio existente y activar GitHub Pages. La página se puede revisar localmente abriendo `web/index.html`. El anuncio ampliado está en `telegram-es.md`.
+**Para aplicar solo la reducción de fuentes y correcciones pequeñas, sigue [PARCHE-FUENTES.md](PARCHE-FUENTES.md).** Las fuentes PDF incluidas ocupan 536 kB; su repertorio y procedencia están en [fuentes/README.md](fuentes/README.md).
+
+**Para actualizar el repositorio ya publicado, sigue [ACTUALIZAR.md](ACTUALIZAR.md).** [PUBLICAR.md](PUBLICAR.md) conserva las instrucciones de la primera publicación. La página se puede revisar localmente abriendo `web/index.html`. El anuncio ampliado está en `telegram-es.md`.
 
 Las versiones extensas están en `web/content/long-version-es.md` y `web/content/long-version-en.md`. Créditos y referencias en [SOURCES.md](SOURCES.md). Para editar la web, cambia `web/content/site.py` y ejecuta `python3 web/build.py`.
 
 ## English quick start
 
 This same repository contains the presentation and three practical exercises: analyse a CSV, create a PNG chart and build a PDF from Markdown and local images. Clone for local use, or fork to edit and run Actions in your own account. Start with `python3 scripts/analizar.py`; install `requirements.txt` in a virtual environment for the chart and PDF. Instructions in [ejercicios/README.md](ejercicios/README.md) include an English summary. Changing the Markdown **or an image** triggers a new PDF build. Download outputs from the completed workflow's **Artifacts** section. The teaching workflows never push commits or publish a website.
+
+## Mira lo que vas a producir
+
+![Gráfico generado a partir del CSV de ejemplo](ejemplos/salida-esperada/grafico.png)
+
+[![Primera página del PDF de ejemplo](ejemplos/salida-esperada/informe-vista-previa.png)](ejemplos/salida-esperada/informe.pdf)
+
+[Gráfico PNG](ejemplos/salida-esperada/grafico.png) · [PDF completo](ejemplos/salida-esperada/informe.pdf) · [Resumen JSON](ejemplos/salida-esperada/resumen.json)
+
+Estas salidas corresponden a los datos iniciales: **6 valores, promedio 25, mínimo 23 y máximo 27**. Son referencias para comparar; tus nuevas ejecuciones escriben en `resultados/` y no las sobrescriben.
+
+## Reutilizar y citar
+
+El **código original usa MIT**. El **texto, los datos ficticios y las imágenes originales de Arturo usan CC BY 4.0**. Las fotografías, materiales y fuentes de terceros conservan sus propias condiciones: consulta [LICENSE](LICENSE) y [THIRD_PARTY.md](THIRD_PARTY.md).
+
+[CITATION.cff](CITATION.cff) contiene los datos de autoría y citación. **El DOI y la versión archivada aún están pendientes de publicación por Arturo**; no se inventa un DOI ni se presenta una etiqueta como publicada. La guía para activar la plantilla, conectar Zenodo y publicar `v1.0` está en [ACTUALIZAR.md](ACTUALIZAR.md).

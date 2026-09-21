@@ -3,9 +3,11 @@ name: 01 - Analizar datos
 on:
   push:
     paths:
+      - 'scripts/resumen_actions.py'
       - 'datos/**'
       - 'scripts/analizar.py'
       - 'tests/test_analizar.py'
+      - 'tests/test_resumen_actions.py'
       - '.github/workflows/01-analizar.yml'
   workflow_dispatch:
 
@@ -23,8 +25,10 @@ jobs:
       - name: Ejecutar el ejemplo
         run: |
           python -m unittest discover -s tests -p test_analizar.py -v
+          python -m unittest discover -s tests -p test_resumen_actions.py -v
           python scripts/analizar.py
       - name: Guardar resultados para descargar
+        id: artifact
         uses: actions/upload-artifact@v7
         with:
           name: analisis
@@ -33,3 +37,8 @@ jobs:
             resultados/informe.html
           if-no-files-found: error
           retention-days: 14
+      - name: Enlace al resultado en el resumen
+        env:
+          ARTIFACT_URL: ${{ steps.artifact.outputs.artifact-url }}
+        run: |
+          printf '\n[Descargar el resultado](%s)\n' "$ARTIFACT_URL" >> "$GITHUB_STEP_SUMMARY"

@@ -8,6 +8,11 @@ import math
 from html import escape
 from pathlib import Path
 from statistics import mean
+import sys
+if __package__ in (None, ''):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from scripts.resumen_actions import escribir_resumen, tabla_numeros
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -63,5 +68,6 @@ if __name__ == '__main__':
         summary = ejecutar(args.entrada, args.salida)
     except (ValueError, OSError) as exc:
         parser.exit(1, f'Error: {exc}\n')
+    escribir_resumen('## 01 · Análisis listo\n\n'+tabla_numeros(summary)+'\n\nEl informe HTML y el JSON están en el artefacto **analisis**.')
     print(json.dumps(summary, ensure_ascii=False))
     print(f'Informe / Report: {args.salida / "informe.html"}')

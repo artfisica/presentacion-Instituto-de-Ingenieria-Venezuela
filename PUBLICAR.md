@@ -1,4 +1,6 @@
-# Publicar este paquete - instrucciones para Arturo
+# Primera publicación - instrucciones originales
+
+**El repositorio ya está publicado. Para esta entrega utiliza [ACTUALIZAR.md](ACTUALIZAR.md), sin repetir `git init` ni configurar otra vez el remoto.**
 
 El destino es tu repositorio existente:
 

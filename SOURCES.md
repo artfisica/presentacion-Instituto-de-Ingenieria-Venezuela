@@ -25,4 +25,6 @@ Los enlaces a materiales específicos están en las tarjetas de cada proyecto. L
 
 [Documentación oficial de GitHub Pages con Actions](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 
+Las condiciones de reutilización están en LICENSE y THIRD_PARTY.md. Las fuentes DejaVu del PDF conservan su licencia en fuentes/LICENSE_DEJAVU.
+
 Este paquete se entrega para revisión y publicación manual por Arturo. No se ha realizado ninguna escritura, push ni modificación de configuración en GitHub.

@@ -1,0 +1,38 @@
+{
+  "fonttools": "4.61.1",
+  "source": "DejaVu fonts bundled with matplotlib 3.10.8",
+  "unicodes": "U+0020-017F,U+0300-03FF,U+2000-214F,U+2190-22FF,U+2605,U+2611",
+  "options": [
+    "--no-hinting",
+    "--name-IDs+=13,14",
+    "--drop-tables+=FFTM",
+    "--no-recalc-timestamp"
+  ],
+  "faces": {
+    "DejaVuSans": {
+      "source_sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22",
+      "subset_sha256": "8fca33b1a4719b8357b347568c6b52e73a8dfadbfcb4f5bac2691df0ad9cdff3",
+      "bytes": 120032
+    },
+    "DejaVuSans-Bold": {
+      "source_sha256": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167",
+      "subset_sha256": "ee4bf7bf21bd49c5ee3c7316156ff4ca6abe507196c55afae3021d72ca863236",
+      "bytes": 112584
+    },
+    "DejaVuSans-Oblique": {
+      "source_sha256": "ccdf74b350f11fd3dd5774de50e5e6346a1a5da1f5b7d5fb83590665e97a5213",
+      "subset_sha256": "b2dad8640fe2ed1100294fe3d295fd44992c9b0bcf8fc03ce9a39625ca0f60d3",
+      "bytes": 113024
+    },
+    "DejaVuSans-BoldOblique": {
+      "source_sha256": "6edf0283160186af451cbee71e7b845f2e4cabf264bb992ce668c83c25465e6f",
+      "subset_sha256": "fa4df63e9b2b6c5b0cd39a77b3b22cbb8c5630127b24b40ce7cd3b4f39e9f9d8",
+      "bytes": 116160
+    },
+    "DejaVuSansMono": {
+      "source_sha256": "602ec86b8948cfcd956482fe64f94c36c867770149ef2f791d4613f443bcecb3",
+      "subset_sha256": "d157dbf21bfd30d546ddb29f239385afc797e3d79b4df45c347bc6778769ca9f",
+      "bytes": 74536
+    }
+  }
+}

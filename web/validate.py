@@ -53,6 +53,9 @@ def main():
     css = ROOT/'assets/style.css'
     for ref in re.findall(r'url\([\'"]?([^\)\'\"]+)', css.read_text()):
         assert (css.parent/ref).is_file(), f'Missing CSS dependency: {ref}'
+    asset_bytes = sum(p.stat().st_size for p in (ROOT/'assets').rglob('*') if p.is_file())
+    assert asset_bytes <= 600_000, f'Web assets exceed 600 kB: {asset_bytes:,} bytes'
+    print(f'Web asset budget: {asset_bytes:,} / 600,000 bytes (PDF TTF fonts are not served).')
     print(f'OK: two languages, 18 project cards, {count} local references, image descriptions and font files.')
     print('External URLs are editorial references; this check does not request them.')
 

@@ -5,3 +5,4 @@ __pycache__/
 _site/
 resultados/*
 !resultados/README.md
+.tmp/

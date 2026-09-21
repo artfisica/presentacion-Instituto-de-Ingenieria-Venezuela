@@ -1,0 +1,23 @@
+# Licensing / Licencias
+
+Copyright (c) 2026 Arturo Rodolfo Sánchez Pineda
+
+Original code (scripts/, tests/, web/build.py, web/validate.py, web/assets/style.css,
+and workflow/configuration code) is licensed under the MIT License in
+LICENSES/MIT.txt.
+
+Original educational text, original diagrams, fictional example data and original
+images owned by Arturo Rodolfo Sánchez Pineda are licensed under Creative Commons
+Attribution 4.0 International (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/
+Legal terms: https://creativecommons.org/licenses/by/4.0/legalcode
+See LICENSES/CC-BY-4.0.md for attribution and scope.
+
+Third-party photographs, project images, trademarks and fonts are NOT relicensed
+by this notice. Their credits, source links and license notices are retained in
+THIRD_PARTY.md, SOURCES.md, fuentes/LICENSE_DEJAVU and web/assets/fonts/OFL.txt.
+The example PDF includes an ATLAS/CERN photograph with its original credit;
+the CC BY notice covers the original text, not that photograph.
+
+This is a mixed-license educational repository, not a choice between licenses
+for all files. Use the license applying to the component you reuse.

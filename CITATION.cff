@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "Si utilizas estos materiales, cita este repositorio. Añadiremos el DOI cuando se publique la versión archivada."
+type: software
+title: "De los datos abiertos al conocimiento compartido: computación, automatización e inteligencia artificial para investigar y aprender"
+authors:
+  - family-names: "Sánchez Pineda"
+    given-names: "Arturo Rodolfo"
+    orcid: "https://orcid.org/0000-0001-8241-7835"
+repository-code: "https://github.com/artfisica/presentacion-Instituto-de-Ingenieria-Venezuela"
+url: "https://artfisica.github.io/presentacion-Instituto-de-Ingenieria-Venezuela/"
+license:
+  - MIT
+  - CC-BY-4.0
+abstract: >-
+  Materiales docentes bilingües con ejercicios de análisis de datos, gráficos y
+  generación de documentos PDF mediante Python y GitHub Actions. Las licencias
+  corresponden a componentes distintos; las excepciones de terceros están
+  documentadas en LICENSE y THIRD_PARTY.md.
+keywords:
+  - open science
+  - reproducibility
+  - education
+  - Python
+  - Venezuela

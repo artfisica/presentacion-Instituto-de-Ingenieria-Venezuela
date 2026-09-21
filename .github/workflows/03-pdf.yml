@@ -3,8 +3,10 @@ name: 03 - Crear PDF
 on:
   push:
     paths:
+      - 'scripts/resumen_actions.py'
       - 'ejemplos/**'
       - 'imagenes/**'
+      - 'fuentes/**'
       - 'scripts/crear_pdf.py'
       - 'tests/test_pdf.py'
       - 'requirements.txt'
@@ -29,6 +31,7 @@ jobs:
           python -m unittest discover -s tests -p test_pdf.py -v
           python scripts/crear_pdf.py
       - name: Guardar resultados para descargar
+        id: artifact
         uses: actions/upload-artifact@v7
         with:
           name: documento-pdf
@@ -36,3 +39,8 @@ jobs:
             resultados/informe.pdf
           if-no-files-found: error
           retention-days: 14
+      - name: Enlace al resultado en el resumen
+        env:
+          ARTIFACT_URL: ${{ steps.artifact.outputs.artifact-url }}
+        run: |
+          printf '\n[Descargar el resultado](%s)\n' "$ARTIFACT_URL" >> "$GITHUB_STEP_SUMMARY"
