@@ -16,11 +16,19 @@ The talk also considers notebooks, research notes and language models as tools f
 
 ## ATLAS Open Data
 
-Experimental data, software, documentation and mentoring that enable university research and learning from Venezuela.
+Experimental data, software, documentation and mentoring that enable university research and learning from Venezuela. Theses by Iskya, María and Oscar connect these tools with projects at UCV and ULA.
 
-Iskya García completed her master’s work at UCV under Arturo’s supervision, studying dark-matter candidates with ATLAS open data and simulations. María Di Domenico completed her undergraduate thesis at UCV by reconstructing W, Z and Higgs boson masses using ROOT, Jupyter and SWAN. Their work also became reusable educational material.
+Iskya García completed her master’s work at UCV under Arturo’s supervision, studying dark-matter candidates with ATLAS open data and simulations. María Di Domenico completed her undergraduate thesis at UCV by reconstructing W, Z and Higgs boson masses using ROOT, Jupyter and SWAN. Their work also became reusable educational material. <strong>Oscar Alejandro Altuve Pabon (ULA)</strong> defended his undergraduate thesis on 1 February 2022, supervised by Arturo Sánchez and Alberto Patiño. He studied optimisation of Higgs analysis in the H → ZZ* → 4ℓ channel at 13 TeV using ATLAS Open Data, ROOT/C++ and Jupyter. A virtual machine supported local analysis with reduced reliance on internet connectivity. The material is preserved in Zenodo, with a link to its code.
 
-[Explore the data](https://opendata.atlas.cern/) · [The two thesis stories](https://atlas.cern/updates/blog/HEP-education-worldwide-with-atlas-open-data) · [Iskya’s thesis](https://cds.cern.ch/record/2291838/) · [María’s thesis](https://cds.cern.ch/record/2293251/)
+[Explore the data](https://opendata.atlas.cern/) · [Iskya and María on ATLAS](https://atlas.cern/updates/blog/HEP-education-worldwide-with-atlas-open-data) · [Iskya’s thesis](https://cds.cern.ch/record/2291838/) · [María’s thesis](https://cds.cern.ch/record/2293251/) · [Oscar’s thesis (ULA)](https://zenodo.org/records/18372123) · [Oscar’s code](https://github.com/AltuOs/HZZ4l/releases/tag/v2.0.0)
+
+## From a USB drive to shared infrastructure
+
+Bringing infrastructure closer to students is a long-standing line of work: provide ready-to-use environments that institutions can adapt to their resources.
+
+At CHEP 2018, Arturo presented ATLAS Open Data and Open Key: data, software, notebooks and documentation carried on a USB drive, with virtual machines for places with limited connectivity. The slides show applications in training and theses in Venezuela. In 2021, Arturo Sánchez Pineda and Giovanni Guerrieri published a proposal for multi-user deployment with JupyterHub and infrastructure as code. It documents an initial Terraform and OpenStack proof of concept at CERN; other scenarios remain proposals. The practical lesson for this talk: delivering a reproducible environment reduces the setup work each student must repeat.
+
+[CHEP 2018 contribution](https://indico.cern.ch/event/587955/contributions/2938491/) · [2018 slides (PDF)](https://indico.cern.ch/event/587955/contributions/2938491/attachments/1635910/2689773/CHEP_2018_Arturo_Sanchez_ATLAS_Open_Data.pdf) · [2021 paper (PDF)](https://cds.cern.ch/record/2772504/files/epjconf_chep2021_01008.pdf) · [Paper DOI](https://doi.org/10.1051/epjconf/202125101008)
 
 ## CoAfina Hackathon
 

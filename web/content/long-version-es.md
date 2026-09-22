@@ -16,11 +16,19 @@ Se discutirá también cómo utilizar cuadernos de análisis, notas y modelos de
 
 ## ATLAS Open Data
 
-Datos experimentales, software, documentación y acompañamiento para realizar investigación y formación universitaria desde Venezuela.
+Datos experimentales, software, documentación y acompañamiento para realizar investigación y formación universitaria desde Venezuela. Las tesis de Iskya, María y Oscar conectan estas herramientas con proyectos en la UCV y la ULA.
 
-Iskya García desarrolló su maestría en la UCV, bajo la supervisión de Arturo, estudiando candidatos a materia oscura con datos abiertos de ATLAS y simulaciones. María Di Domenico realizó su licenciatura en la UCV reconstruyendo masas de los bosones W, Z y Higgs con ROOT, Jupyter y SWAN. Sus resultados también se convirtieron en recursos educativos reutilizables.
+Iskya García desarrolló su maestría en la UCV, bajo la supervisión de Arturo, estudiando candidatos a materia oscura con datos abiertos de ATLAS y simulaciones. María Di Domenico realizó su licenciatura en la UCV reconstruyendo masas de los bosones W, Z y Higgs con ROOT, Jupyter y SWAN. Sus resultados también se convirtieron en recursos educativos reutilizables. <strong>Oscar Alejandro Altuve Pabon (ULA)</strong> defendió su tesis de licenciatura el 1 de febrero de 2022, bajo la supervisión de Arturo Sánchez y Alberto Patiño. Estudió la optimización del análisis de Higgs en el canal H → ZZ* → 4ℓ a 13 TeV con ATLAS Open Data, ROOT/C++ y Jupyter. El trabajo se desarrolló en una máquina virtual para ejecutar los análisis localmente con menor dependencia de internet. El material está preservado en Zenodo y enlaza su código.
 
-[Explorar los datos](https://opendata.atlas.cern/) · [Las dos tesis](https://atlas.cern/updates/blog/HEP-education-worldwide-with-atlas-open-data) · [Tesis de Iskya](https://cds.cern.ch/record/2291838/) · [Tesis de María](https://cds.cern.ch/record/2293251/)
+[Explorar los datos](https://opendata.atlas.cern/) · [Iskya y María en ATLAS](https://atlas.cern/updates/blog/HEP-education-worldwide-with-atlas-open-data) · [Tesis de Iskya](https://cds.cern.ch/record/2291838/) · [Tesis de María](https://cds.cern.ch/record/2293251/) · [Tesis de Oscar (ULA)](https://zenodo.org/records/18372123) · [Código de Oscar](https://github.com/AltuOs/HZZ4l/releases/tag/v2.0.0)
+
+## De una memoria USB a infraestructura compartida
+
+Acercar la infraestructura al estudiante es una línea de trabajo de años: llevar entornos listos para usar y facilitar que una institución los adapte a sus recursos.
+
+En CHEP 2018, Arturo presentó ATLAS Open Data y Open Key: datos, software, notebooks y documentación transportables en una memoria USB, con máquinas virtuales para trabajar donde la conectividad es limitada. Las diapositivas muestran su aplicación a formación y tesis en Venezuela. En 2021, Arturo Sánchez Pineda y Giovanni Guerrieri publicaron una propuesta de despliegue multiusuario con JupyterHub e infraestructura como código. Documenta una primera prueba con Terraform y OpenStack en CERN; los demás escenarios se presentan como propuestas. Para esta charla, el aprendizaje es práctico: entregar un entorno reproducible reduce el trabajo de instalación que cada estudiante debe repetir.
+
+[Contribución CHEP 2018](https://indico.cern.ch/event/587955/contributions/2938491/) · [Diapositivas de 2018 (PDF)](https://indico.cern.ch/event/587955/contributions/2938491/attachments/1635910/2689773/CHEP_2018_Arturo_Sanchez_ATLAS_Open_Data.pdf) · [Artículo de 2021 (PDF)](https://cds.cern.ch/record/2772504/files/epjconf_chep2021_01008.pdf) · [DOI del artículo](https://doi.org/10.1051/epjconf/202125101008)
 
 ## Hackatón CoAfina
 

@@ -37,7 +37,7 @@ def main():
         assert len(page.headings) == 1, f'{name}: expected one primary heading'
         assert len(page.ids) == len(set(page.ids)), f'{name}: duplicate IDs'
         assert page.ids.index('charla') < page.ids.index('arturo')
-        assert len([x for x in page.ids if x.startswith('project-')]) == 9
+        assert len([x for x in page.ids if x.startswith('project-')]) == 10
         for ref in page.refs:
             u = urlsplit(ref)
             if u.scheme or u.netloc:
@@ -56,7 +56,7 @@ def main():
     asset_bytes = sum(p.stat().st_size for p in (ROOT/'assets').rglob('*') if p.is_file())
     assert asset_bytes <= 600_000, f'Web assets exceed 600 kB: {asset_bytes:,} bytes'
     print(f'Web asset budget: {asset_bytes:,} / 600,000 bytes (PDF TTF fonts are not served).')
-    print(f'OK: two languages, 18 project cards, {count} local references, image descriptions and font files.')
+    print(f'OK: two languages, 20 project cards, {count} local references, image descriptions and font files.')
     print('External URLs are editorial references; this check does not request them.')
 
 if __name__ == '__main__':

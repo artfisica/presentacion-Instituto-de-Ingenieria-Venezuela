@@ -120,3 +120,16 @@ Estas salidas corresponden a los datos iniciales: **6 valores, promedio 25, mín
 El **código original usa MIT**. El **texto, los datos ficticios y las imágenes originales de Arturo usan CC BY 4.0**. Las fotografías, materiales y fuentes de terceros conservan sus propias condiciones: consulta [LICENSE](LICENSE) y [THIRD_PARTY.md](THIRD_PARTY.md).
 
 [CITATION.cff](CITATION.cff) contiene los datos de autoría y citación. **El DOI y la versión archivada aún están pendientes de publicación por Arturo**; no se inventa un DOI ni se presenta una etiqueta como publicada. La guía para activar la plantilla, conectar Zenodo y publicar `v1.0` está en [ACTUALIZAR.md](ACTUALIZAR.md).
+
+## Otra experiencia: una tesis desde la ULA
+
+[Oscar Alejandro Altuve Pabon: análisis de Higgs con ATLAS Open Data](https://zenodo.org/records/18372123). Licenciatura defendida en 2022, supervisada por Arturo Sánchez y Alberto Patiño. Un ejemplo de cómo combinar ROOT/C++, notebooks y un entorno local reproducible para investigar desde Venezuela. [Código de la tesis](https://github.com/AltuOs/HZZ4l/releases/tag/v2.0.0).
+
+**English:** [Oscar’s undergraduate thesis at ULA](https://zenodo.org/records/18372123) adds a third university example alongside Iskya and María. It connects Higgs analysis with reproducible local computing.
+
+## De Open Key a infraestructura compartida / From Open Key to shared infrastructure
+
+- **CHEP 2018 — ATLAS Open Data y Open Key:** Arturo presentó entornos transportables en USB para formar estudiantes con conectividad limitada. [Ficha de la contribución](https://indico.cern.ch/event/587955/contributions/2938491/) · [Diapositivas](https://indico.cern.ch/event/587955/contributions/2938491/attachments/1635910/2689773/CHEP_2018_Arturo_Sanchez_ATLAS_Open_Data.pdf).
+- **CHEP 2021 — despliegue multiusuario:** artículo de Arturo Sánchez Pineda y Giovanni Guerrieri sobre JupyterHub e infraestructura reproducible. [Artículo](https://cds.cern.ch/record/2772504/files/epjconf_chep2021_01008.pdf) · [DOI](https://doi.org/10.1051/epjconf/202125101008).
+
+**English:** The 2018 contribution demonstrates portable educational resources; the 2021 paper proposes shared deployments. Both underpin this workshop’s approach: give students a working starting point they can understand, reproduce and adapt. The 2018 event page and slides describe the same contribution.
