@@ -43,7 +43,7 @@ def render(c):
     return f'''<!doctype html>
 <html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{c['title']} — Arturo Sánchez Pineda</title><meta name="description" content="{escape(c['description'],quote=True)}">
-<meta name="author" content="Arturo Rodolfo Sánchez Pineda"><meta name="theme-color" content="#102434">
+<meta name="author" content="Arturo Sánchez Pineda"><meta name="theme-color" content="#102434">
 <meta property="og:image" content="{BASE}assets/atlas-venezuela.webp"><meta property="og:image:alt" content="{escape(c['photo_alt'],quote=True)}"><meta property="og:type" content="website"><meta property="og:title" content="{c['title']}"><meta property="og:description" content="{escape(c['description'],quote=True)}"><meta property="og:locale" content="{'es_VE' if lang=='es' else 'en_US'}"><meta property="og:url" content="{canonical}">
 <link rel="canonical" href="{canonical}"><link rel="alternate" hreflang="es" href="{BASE}"><link rel="alternate" hreflang="en" href="{BASE}en.html"><link rel="alternate" hreflang="x-default" href="{BASE}">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="stylesheet" href="assets/style.css">
@@ -53,7 +53,7 @@ def render(c):
 <header class="topbar"><nav class="wrap nav" aria-label="{'Principal' if lang=='es' else 'Main'}"><a class="brand" href="index.html"><span aria-hidden="true">[ a / s ]</span> Arturo Sánchez Pineda</a><div class="navlinks"><div class="navsections">{nav}</div><div class="language" aria-label="{'Idioma' if lang=='es' else 'Language'}">{language}</div></div></nav></header>
 <main id="main">
 <section class="hero wrap" aria-labelledby="hero-title"><div class="eyebrow">{c['event']}</div><h1 id="hero-title">{c['hero']}</h1><p class="event-chip">{'Fecha y enlace: por confirmar' if lang == 'es' else 'Date and meeting link: to be confirmed'}</p>
-<div class="hero-bottom"><div><p class="subtitle">{c['subtitle']}</p><div class="actions"><a class="button" href="#proyectos">{c['cta']} <span aria-hidden="true">↘</span></a><a class="button secondary" href="#charla">{c['read']}</a></div></div><p class="speaker"><strong>Arturo Rodolfo Sánchez Pineda</strong>{c['role']}<br>CERN / ATLAS · INAIT · Creative Commons</p></div>
+<div class="hero-bottom"><div><p class="subtitle">{c['subtitle']}</p><div class="actions"><a class="button" href="#proyectos">{c['cta']} <span aria-hidden="true">↘</span></a><a class="button secondary" href="#charla">{c['read']}</a></div></div><p class="speaker"><strong>Arturo Sánchez Pineda</strong>{c['role']}<br>CERN / ATLAS · INAIT · Creative Commons</p></div>
 <aside class="takeaway"><div><h2>{c['takeaway_title']}</h2><p>{c['takeaway_text']}</p></div><a class="button" href="{LINKS['repo']}#ejercicios">{c['takeaway_cta']} ↓</a></aside>
 <figure><div class="hero-image"><img src="assets/atlas-venezuela.webp" width="1600" height="799" alt="{escape(c['photo_alt'],quote=True)}" fetchpriority="high"><span class="image-label">{c['photo_label']}</span></div><figcaption class="caption">{c['photo_caption']} <a href="{LINKS['theses']}">{'Fuente' if lang=='es' else 'Source'} ↗</a></figcaption></figure></section>
 <section class="section wrap" id="charla"><div class="section-head"><div class="eyebrow">{c['intro_label']}</div><h2>{c['intro_title']}</h2></div><div class="intro-grid"><aside class="side-note">{c['intro_note']}</aside><div class="prose">{paragraphs(c['intro'])}<blockquote class="callout">{c['quote']}</blockquote></div></div></section>
@@ -63,7 +63,7 @@ def render(c):
 <section class="section wrap" id="proyectos"><div class="section-head"><div class="eyebrow">{c['projects_label']}</div><div><h2>{c['projects_title']}</h2><p>{c['projects_intro']}</p></div></div><div class="project-grid">{cards}</div></section>
 <section class="section method" id="metodo"><div class="wrap"><div class="section-head"><div class="eyebrow">{c['method_label']}</div><div><h2>{c['method_title']}</h2><p>{c['method_intro']}</p></div></div><div class="method-steps">{steps}</div><div class="prose">{paragraphs(c['method_body'])}</div></div></section>
 <section class="section wrap" id="recursos"><div class="section-head"><div class="eyebrow">{c['resources_label']}</div><div><h2>{c['resources_title']}</h2><p>{c['resources_intro']}</p></div></div><div class="intro-grid"><aside class="side-note">Git · GitHub · Jupyter<br>Codespaces · Actions<br>{'Modelos de lenguaje' if lang=='es' else 'Language models'}</aside><div class="prose">{paragraphs(c['resources_body'])}</div></div><div class="resource-list">{resources}</div><p class="end-note">{c['closing']}</p></section>
-<section class="section bio" id="arturo"><div class="wrap"><div class="section-head"><div class="eyebrow">{c['bio_label']}</div><h2>{c['bio_title']}</h2></div><div class="bio-grid"><aside class="bio-aside"><p class="name">Arturo Rodolfo<br>Sánchez Pineda</p><p class="bio-summary">{c['bio_summary']}</p><div class="profile-links"><a href="{LINKS['linkedin']}">LinkedIn ↗</a><a href="{LINKS['orcid']}">ORCID ↗</a><a href="{LINKS['profile']}">ATLAS ↗</a></div></aside><div class="prose">{paragraphs(c['bio'])}</div></div></div></section>
+<section class="section bio" id="arturo"><div class="wrap"><div class="section-head"><div class="eyebrow">{c['bio_label']}</div><h2>{c['bio_title']}</h2></div><div class="bio-grid"><aside class="bio-aside"><p class="name">Arturo<br>Sánchez Pineda</p><p class="bio-summary">{c['bio_summary']}</p><div class="profile-links"><a href="{LINKS['linkedin']}">LinkedIn ↗</a><a href="{LINKS['orcid']}">ORCID ↗</a><a href="{LINKS['profile']}">ATLAS ↗</a></div></aside><div class="prose">{paragraphs(c['bio'])}</div></div></div></section>
 </main>
 <footer class="wrap"><div class="footer"><div><strong>{c['footer']}</strong><br>Arturo Sánchez Pineda · Instituto de Ingeniería, Venezuela<small>{c['footer_note']}</small></div><a href="{LINKS['repo']}">{c['repo_label']} ↗</a></div><details class="credits"><summary>{c['credits_title']}</summary><p>{c['credits']}</p></details></footer>
 </body></html>'''
@@ -78,7 +78,7 @@ def export_text(c):
     sections=[f'# {c["title"]}',c['event'],f'**{c["takeaway_title"]}**',c['takeaway_text'], '\n\n'.join(map(plain,c['intro']))]
     for p in c['projects']:
         sections += [f'## {p["title"]}',p['text'],p['detail'],' · '.join(f'[{label}]({LINKS[key]})' for label,key in p['links'])]
-    sections += [f'## {plain(c["method_title"])}','\n\n'.join(map(plain,c['method_body'])),f'## {plain(c["resources_title"])}','\n\n'.join(map(plain,c['resources_body'])),c['closing'], '## Arturo Rodolfo Sánchez Pineda','\n\n'.join(map(plain,c['bio']))]
+    sections += [f'## {plain(c["method_title"])}','\n\n'.join(map(plain,c['method_body'])),f'## {plain(c["resources_title"])}','\n\n'.join(map(plain,c['resources_body'])),c['closing'], '## Arturo Sánchez Pineda','\n\n'.join(map(plain,c['bio']))]
     return '\n\n'.join(sections)+'\n'
 
 if __name__ == '__main__':

@@ -4,7 +4,7 @@ type: software
 title: "De los datos abiertos al conocimiento compartido: computación, automatización e inteligencia artificial para investigar y aprender"
 authors:
   - family-names: "Sánchez Pineda"
-    given-names: "Arturo Rodolfo"
+    given-names: "Arturo"
     orcid: "https://orcid.org/0000-0001-8241-7835"
 repository-code: "https://github.com/artfisica/presentacion-Instituto-de-Ingenieria-Venezuela"
 url: "https://artfisica.github.io/presentacion-Instituto-de-Ingenieria-Venezuela/"

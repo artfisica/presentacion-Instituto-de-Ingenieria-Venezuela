@@ -108,9 +108,9 @@ Los **modelos de lenguaje** pueden ayudar a explicar código, preparar borradore
 
 La charla está dirigida a estudiantes, docentes, investigadores y personas que impulsan proyectos científicos, educativos o comunitarios. El objetivo es ofrecer ejemplos y métodos adaptables en Venezuela y la región: hacer que los recursos disponibles se conviertan en autonomía para aprender, investigar y producir conocimiento compartido.
 
-## Arturo Rodolfo Sánchez Pineda
+## Arturo Sánchez Pineda
 
-Arturo Rodolfo Sánchez Pineda es físico venezolano, profesional de la ingeniería de infraestructura y educador. Su formación comenzó en la Universidad de Los Andes, en Mérida, donde cursó estudios de Física e Ingeniería y obtuvo su licenciatura en Física con distinción Magna Cum Laude. Continuó su formación investigadora en el LPNHE de la Université Paris-Diderot mediante el programa HELEN y obtuvo su doctorado en Física de Altas Energías en la Universidad de Nápoles Federico II en 2013. Su investigación doctoral se centró en la búsqueda del bosón de Higgs con ATLAS. [Trayectoria académica](https://twiki.org/p/pub/Main/ArturoSanchez/Arturo_Sanchez_Curriculum_June_2016.pdf).
+Arturo Sánchez Pineda es físico venezolano, profesional de la ingeniería de infraestructura y educador. Su formación comenzó en la Universidad de Los Andes, en Mérida, donde cursó estudios de Física e Ingeniería y obtuvo su licenciatura en Física con distinción Magna Cum Laude. Continuó su formación investigadora en el LPNHE de la Université Paris-Diderot mediante el programa HELEN y obtuvo su doctorado en Física de Altas Energías en la Universidad de Nápoles Federico II en 2013. Su investigación doctoral se centró en la búsqueda del bosón de Higgs con ATLAS. [Trayectoria académica](https://twiki.org/p/pub/Main/ArturoSanchez/Arturo_Sanchez_Curriculum_June_2016.pdf).
 
 Su carrera científica incluye investigación y responsabilidades de computación en Nápoles e INFN, trabajo posdoctoral vinculado al ICTP, la Universidad de Udine e INFN, y desarrollo de infraestructura científica en LAPP dentro del proyecto europeo ESCAPE. Ha trabajado en análisis de datos de física de partículas, software científico, procesamiento distribuido y herramientas para facilitar el trabajo de otros investigadores.
 

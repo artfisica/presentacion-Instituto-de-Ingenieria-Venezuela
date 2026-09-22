@@ -19,7 +19,7 @@ El repositorio incluye los tres ejercicios. Para ejecutarlos localmente empieza 
 
 **Computación, automatización e inteligencia artificial para investigar y aprender.**
 
-Charla en línea de Arturo Rodolfo Sánchez Pineda para el Instituto de Ingeniería, Venezuela.
+Charla en línea de Arturo Sánchez Pineda para el Instituto de Ingeniería, Venezuela.
 
 **Este mismo repositorio es tu punto de partida.** Puedes clonarlo, ejecutar los ejemplos y adaptarlos a tu tesis, clase o proyecto. Si puedes y quieres, llega a la charla con tu cuenta de GitHub creada.
 

@@ -108,9 +108,9 @@ The talk examines platforms such as GitHub, part of Microsoft, alongside open to
 
 The talk is for students, educators, researchers and people developing scientific, educational or community projects. It offers examples and methods adaptable in Venezuela and the region: turning available resources into the autonomy to learn, investigate and produce shared knowledge.
 
-## Arturo Rodolfo Sánchez Pineda
+## Arturo Sánchez Pineda
 
-Arturo Rodolfo Sánchez Pineda is a Venezuelan physicist, infrastructure engineering professional and educator. His education began at Universidad de Los Andes in Mérida, where he pursued Physics and Engineering studies and graduated in Physics with Magna Cum Laude honours. He continued his research training at LPNHE, Université Paris-Diderot, through the HELEN programme, and earned his PhD in High Energy Physics at the University of Naples Federico II in 2013. His doctoral research focused on Higgs-boson searches with ATLAS. [Academic background](https://twiki.org/p/pub/Main/ArturoSanchez/Arturo_Sanchez_Curriculum_June_2016.pdf).
+Arturo Sánchez Pineda is a Venezuelan physicist, infrastructure engineering professional and educator. His education began at Universidad de Los Andes in Mérida, where he pursued Physics and Engineering studies and graduated in Physics with Magna Cum Laude honours. He continued his research training at LPNHE, Université Paris-Diderot, through the HELEN programme, and earned his PhD in High Energy Physics at the University of Naples Federico II in 2013. His doctoral research focused on Higgs-boson searches with ATLAS. [Academic background](https://twiki.org/p/pub/Main/ArturoSanchez/Arturo_Sanchez_Curriculum_June_2016.pdf).
 
 His scientific career includes research and computing responsibilities in Naples and INFN, postdoctoral work associated with ICTP, the University of Udine and INFN, and scientific-infrastructure development at LAPP within the European ESCAPE project. He has worked on particle-physics data analysis, scientific software, distributed processing and tools that support other researchers.
 

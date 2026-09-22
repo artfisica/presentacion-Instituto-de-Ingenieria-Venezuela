@@ -32,12 +32,15 @@ class Page(HTMLParser):
 def main():
     pages = {name: Page(ROOT/name) for name in ('index.html', 'en.html')}
     count = 0
+    project_count = 0
     for name, page in pages.items():
         assert page.lang == ('es' if name == 'index.html' else 'en')
         assert len(page.headings) == 1, f'{name}: expected one primary heading'
         assert len(page.ids) == len(set(page.ids)), f'{name}: duplicate IDs'
         assert page.ids.index('charla') < page.ids.index('arturo')
-        assert len([x for x in page.ids if x.startswith('project-')]) == 10
+        page_project_count = sum(x.startswith('project-') for x in page.ids)
+        assert page_project_count == 10
+        project_count += page_project_count
         for ref in page.refs:
             u = urlsplit(ref)
             if u.scheme or u.netloc:
@@ -56,7 +59,7 @@ def main():
     asset_bytes = sum(p.stat().st_size for p in (ROOT/'assets').rglob('*') if p.is_file())
     assert asset_bytes <= 600_000, f'Web assets exceed 600 kB: {asset_bytes:,} bytes'
     print(f'Web asset budget: {asset_bytes:,} / 600,000 bytes (PDF TTF fonts are not served).')
-    print(f'OK: two languages, 20 project cards, {count} local references, image descriptions and font files.')
+    print(f'OK: two languages, {project_count} project cards, {count} local references, image descriptions and font files.')
     print('External URLs are editorial references; this check does not request them.')
 
 if __name__ == '__main__':
