@@ -2,7 +2,7 @@
 
 Instituto de Ingeniería · Venezuela · Online talk
 
-Wednesday 21 October 2026 · 9:00 a.m. Venezuela time (UTC−4) · 13:00 UTC · Meeting link: to be confirmed with the organisers
+Wednesday 21 October 2026 · 9:00 a.m. Venezuela time (UTC−4) · 13:00 UTC · Join: FORMATEC virtual rooms (https://fii.gob.ve/formatec/) · room to be confirmed
 
 **Take home a working repository.**
 

@@ -15,8 +15,10 @@ Preserve accurate distinctions: LAGO is a proposal; the Nobel went to Englert
 and Higgs; engineering studies at ULA must not become an unsupported second degree.
 The talk is confirmed for Wednesday 21 October 2026 at 09:00 America/Caracas
 (UTC−4, 13:00 UTC). That data lives only in EVENT in web/content/site.py and
-feeds the hero chip, footer, long versions and the .ics files. The meeting link is
-still pending: never invent it. Never hand-edit web/index.html or web/en.html;
+feeds the hero chip, footer, long versions and the .ics files. The connection is the
+FORMATEC virtual-rooms page (EVENT['link']); the specific room (EVENT['room'],
+EVENT['room_link']) is still pending: never invent it. Never hand-edit
+web/index.html or web/en.html;
 pages.yml regenerates both from site.py on every deploy.
 
 The root is also the participant repository. Keep datos/, ejemplos/, imagenes/,

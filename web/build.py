@@ -11,11 +11,29 @@ BASE = 'https://artfisica.github.io/presentacion-Instituto-de-Ingenieria-Venezue
 def paragraphs(items):
     return ''.join(f'<p>{p}</p>' for p in items)
 
+def connection(c, html=False):
+    """Where to join: the FORMATEC page, then the room once EVENT['room'] (and 'room_link') is set."""
+    if not EVENT.get('link'):
+        return c['link_note']
+    if html:
+        text = f'<a href="{escape(EVENT["link"], quote=True)}">{c["join"]} ↗</a>'
+        if EVENT.get('room'):
+            room = escape(EVENT['room'])
+            text += ' · ' + (f'<a href="{escape(EVENT["room_link"], quote=True)}">{room} ↗</a>' if EVENT.get('room_link') else room)
+        else:
+            text += f' · {c["room_note"]}'
+        return text
+    text = f'{c["join"]} ({EVENT["link"]})'
+    if EVENT.get('room'):
+        text += f' · {EVENT["room"]}' + (f' ({EVENT["room_link"]})' if EVENT.get('room_link') else '')
+    else:
+        text += f' · {c["room_note"]}'
+    return text
+
 def event_chip(c):
-    """Date, time and calendar link; the meeting link replaces the pending note once EVENT['link'] is set."""
-    link = f'<a href="{escape(EVENT["link"], quote=True)}">{c["join"]} ↗</a>' if EVENT.get('link') else c['link_note']
+    """Date, time, calendar download and the connection details."""
     return (f'<p class="event-chip"><time datetime="{EVENT["start"]}">{c["when"]}</time> · '
-            f'<a href="assets/{c["ics"]}" download>{c["calendar"]} ↓</a> · {link}</p>')
+            f'<a href="assets/{c["ics"]}" download>{c["calendar"]} ↓</a> · {connection(c, html=True)}</p>')
 
 def ics_fold(line):
     """RFC 5545: content lines are at most 75 octets; continuation lines start with one space."""
@@ -38,13 +56,13 @@ def calendar(c):
     end = start + timedelta(minutes=EVENT['minutes'])
     stamp = lambda d: d.strftime('%Y%m%dT%H%M%SZ')
     page = BASE + ('' if c['lang'] == 'es' else 'en.html')
-    description = c['ics_description'] + '\n' + (EVENT['link'] if EVENT.get('link') else c['link_note']) + '\n' + page + '\n' + LINKS['repo']
+    description = c['ics_description'] + '\n' + connection(c) + '\n' + page + '\n' + LINKS['repo']
     lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
              f'PRODID:-//Arturo Sanchez Pineda//presentacion-Instituto-de-Ingenieria-Venezuela//{c["lang"].upper()}',
              'BEGIN:VEVENT', f'UID:{EVENT["uid"]}', f'DTSTAMP:{EVENT["stamp"]}',
              f'DTSTART:{stamp(start)}', f'DTEND:{stamp(end)}', 'STATUS:CONFIRMED',
              f'SUMMARY:{ics_text(c["ics_summary"])}', f'DESCRIPTION:{ics_text(description)}',
-             f'LOCATION:{ics_text(EVENT["link"] if EVENT.get("link") else c["ics_location"])}',
+             f'LOCATION:{ics_text(EVENT.get("room_link") or EVENT.get("link") or c["ics_location"])}',
              f'URL:{page}', 'END:VEVENT', 'END:VCALENDAR']
     return '\r\n'.join(ics_fold(line) for line in lines) + '\r\n'
 
@@ -103,7 +121,7 @@ def render(c):
 <section class="section wrap" id="recursos"><div class="section-head"><div class="eyebrow">{c['resources_label']}</div><div><h2>{c['resources_title']}</h2><p>{c['resources_intro']}</p></div></div><div class="intro-grid"><aside class="side-note">Git · GitHub · Jupyter<br>Codespaces · Actions<br>{'Modelos de lenguaje' if lang=='es' else 'Language models'}</aside><div class="prose">{paragraphs(c['resources_body'])}</div></div><div class="resource-list">{resources}</div><p class="end-note">{c['closing']}</p></section>
 <section class="section bio" id="arturo"><div class="wrap"><div class="section-head"><div class="eyebrow">{c['bio_label']}</div><h2>{c['bio_title']}</h2></div><div class="bio-grid"><aside class="bio-aside"><p class="name">Arturo<br>Sánchez Pineda</p><p class="bio-summary">{c['bio_summary']}</p><div class="profile-links"><a href="{LINKS['linkedin']}">LinkedIn ↗</a><a href="{LINKS['orcid']}">ORCID ↗</a><a href="{LINKS['profile']}">ATLAS ↗</a></div></aside><div class="prose">{paragraphs(c['bio'])}</div></div></div></section>
 </main>
-<footer class="wrap"><div class="footer"><div><strong>{c['footer']}</strong><br>Arturo Sánchez Pineda · Instituto de Ingeniería, Venezuela<small>{c['footer_note']}</small></div><a href="{LINKS['repo']}">{c['repo_label']} ↗</a></div><details class="credits"><summary>{c['credits_title']}</summary><p>{c['credits']}</p></details></footer>
+<footer class="wrap"><div class="footer"><div><strong>{c['footer']}</strong><br>Arturo Sánchez Pineda · Instituto de Ingeniería, Venezuela<small>{c['footer_note']} {c['when']}. {connection(c, html=True)}.</small></div><a href="{LINKS['repo']}">{c['repo_label']} ↗</a></div><details class="credits"><summary>{c['credits_title']}</summary><p>{c['credits']}</p></details></footer>
 </body></html>'''
 
 def export_text(c):
@@ -113,7 +131,7 @@ def export_text(c):
         s=re.sub(r'<a href="([^"]+)">(.*?)</a>',r'[\2](\1)',s)
         s=s.replace('<strong>','**').replace('</strong>','**').replace('<br>',' ')
         return re.sub('<[^>]+>','',s)
-    when = f'{c["when"]} · ' + (EVENT['link'] if EVENT.get('link') else c['link_note'])
+    when = f'{c["when"]} · {connection(c)}'
     sections=[f'# {c["title"]}',c['event'],when,f'**{c["takeaway_title"]}**',c['takeaway_text'], '\n\n'.join(map(plain,c['intro']))]
     for p in c['projects']:
         sections += [f'## {p["title"]}',p['text'],p['detail'],' · '.join(f'[{label}]({LINKS[key]})' for label,key in p['links'])]

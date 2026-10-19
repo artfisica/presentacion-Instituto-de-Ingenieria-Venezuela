@@ -21,7 +21,7 @@ El repositorio incluye los tres ejercicios. Para ejecutarlos localmente empieza 
 
 Charla en línea de Arturo Sánchez Pineda para el Instituto de Ingeniería, Venezuela.
 
-**Miércoles 21 de octubre de 2026, 9:00 a. m. hora de Venezuela (UTC−4; 13:00 UTC).** [Añadir al calendario](https://artfisica.github.io/presentacion-Instituto-de-Ingenieria-Venezuela/assets/charla.ics). El enlace de conexión lo comunicará la organización y se publicará también en la [página de la charla](https://artfisica.github.io/presentacion-Instituto-de-Ingenieria-Venezuela/).
+**Miércoles 21 de octubre de 2026, 9:00 a. m. hora de Venezuela (UTC−4; 13:00 UTC).** [Añadir al calendario](https://artfisica.github.io/presentacion-Instituto-de-Ingenieria-Venezuela/assets/charla.ics). Conexión por las [Salas Virtuales FORMATEC](https://fii.gob.ve/formatec/) del Instituto de Ingeniería; la sala concreta se indicará en la [página de la charla](https://artfisica.github.io/presentacion-Instituto-de-Ingenieria-Venezuela/) en cuanto la confirme la organización.
 
 **Este mismo repositorio es tu punto de partida.** Puedes clonarlo, ejecutar los ejemplos y adaptarlos a tu tesis, clase o proyecto. Si puedes y quieres, llega a la charla con tu cuenta de GitHub creada.
 
@@ -101,13 +101,13 @@ Sustituye los datos, formula una pregunta, adapta el script y documenta tus fuen
 
 **Para actualizar el repositorio ya publicado, sigue [ACTUALIZAR.md](ACTUALIZAR.md).** [PUBLICAR.md](PUBLICAR.md) conserva las instrucciones de la primera publicación. La página se puede revisar localmente abriendo `web/index.html`. El anuncio ampliado está en `telegram-es.md`.
 
-La fecha y la hora de la charla están en `EVENT`, en `web/content/site.py`; de ahí salen la cápsula de la portada, el pie de página, las versiones extensas y los archivos `web/assets/charla.ics` y `web/assets/talk.ics`. Cuando la organización envíe el enlace de conexión, escríbelo en `EVENT['link']`, ejecuta `python3 web/build.py` y sube el cambio. No edites `web/index.html` ni `web/en.html` a mano: `pages.yml` los regenera desde `site.py` en cada publicación.
+La fecha y la hora de la charla están en `EVENT`, en `web/content/site.py`; de ahí salen la cápsula de la portada, el pie de página, las versiones extensas y los archivos `web/assets/charla.ics` y `web/assets/talk.ics`. La conexión (`EVENT['link']`) es la página de Salas Virtuales FORMATEC; cuando la organización indique la sala, escribe su nombre en `EVENT['room']` y su enlace directo en `EVENT['room_link']`, ejecuta `python3 web/build.py` y sube el cambio. No edites `web/index.html` ni `web/en.html` a mano: `pages.yml` los regenera desde `site.py` en cada publicación.
 
 Las versiones extensas están en `web/content/long-version-es.md` y `web/content/long-version-en.md`. Créditos y referencias en [SOURCES.md](SOURCES.md). Para editar la web, cambia `web/content/site.py` y ejecuta `python3 web/build.py`.
 
 ## English quick start
 
-The talk takes place on Wednesday 21 October 2026 at 9:00 a.m. Venezuela time (UTC−4; 13:00 UTC): [add it to your calendar](https://artfisica.github.io/presentacion-Instituto-de-Ingenieria-Venezuela/assets/talk.ics). The organisers will announce the meeting link.
+The talk takes place on Wednesday 21 October 2026 at 9:00 a.m. Venezuela time (UTC−4; 13:00 UTC): [add it to your calendar](https://artfisica.github.io/presentacion-Instituto-de-Ingenieria-Venezuela/assets/talk.ics). Connection through the Instituto de Ingeniería's [FORMATEC virtual rooms](https://fii.gob.ve/formatec/); the room will be posted on the talk page once the organisers confirm it.
 
 This same repository contains the presentation and three practical exercises: analyse a CSV, create a PNG chart and build a PDF from Markdown and local images. Clone for local use, or fork to edit and run Actions in your own account. Start with `python3 scripts/analizar.py`; install `requirements.txt` in a virtual environment for the chart and PDF. Instructions in [ejercicios/README.md](ejercicios/README.md) include an English summary. Changing the Markdown **or an image** triggers a new PDF build. Download outputs from the completed workflow's **Artifacts** section. The teaching workflows never push commits or publish a website.
 

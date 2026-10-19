@@ -2,7 +2,7 @@
 
 Instituto de Ingeniería · Venezuela · Charla en línea
 
-Miércoles 21 de octubre de 2026 · 9:00 a. m. hora de Venezuela (UTC−4) · 13:00 UTC · Enlace de conexión: por confirmar con la organización
+Miércoles 21 de octubre de 2026 · 9:00 a. m. hora de Venezuela (UTC−4) · 13:00 UTC · Conectarse: Salas Virtuales FORMATEC (https://fii.gob.ve/formatec/) · sala por confirmar
 
 **Te llevas un repositorio que funciona.**
 

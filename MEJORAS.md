@@ -29,8 +29,8 @@ Pasos exactos en `ACTUALIZAR.md`. El asistente no realiza estas operaciones.
 ## Siguientes tandas, aún no implementadas
 
 - Tarjeta social JPG 1200×630, Twitter card y Person JSON-LD.
-- Enlace de conexión real cuando lo confirme la organización: `EVENT['link']` en
-  `web/content/site.py`, seguido de `python3 web/build.py`.
+- Sala concreta de FORMATEC cuando la indique la organización: `EVENT['room']` y
+  `EVENT['room_link']` en `web/content/site.py`, seguido de `python3 web/build.py`.
 - Devcontainer Python 3.12, notebook y comprobación del entorno en un comando.
 - Cuarto ejercicio de publicación propia y URL base derivada de la copia.
 - Galería de participantes, validación de aportes y ciclo completo de PR.
@@ -78,8 +78,11 @@ Galería, Discussions y mantenimiento periódico quedan para después de la char
   `web/content/site.py`; `build.py` genera con ellos la cápsula de la portada, el
   pie de página, las versiones extensas y los calendarios `charla.ics` y `talk.ics`
   en `web/assets/` (hora en UTC, DTSTAMP fijo, líneas plegadas a 75 octetos).
-- El enlace de conexión sigue pendiente. Al escribirlo en `EVENT['link']`, la
-  cápsula muestra «Unirse a la charla», y el `.ics` lo usa como ubicación.
+- Conexión confirmada el 19 de octubre: las Salas Virtuales FORMATEC del Instituto
+  de Ingeniería (`EVENT['link']`), enlazadas desde la cápsula, el pie de página,
+  las versiones extensas, README, Telegram y los `.ics` (como ubicación). La sala
+  concreta sigue pendiente: al escribirla en `EVENT['room']` y `EVENT['room_link']`,
+  aparece junto al enlace y el `.ics` pasa a usar la sala como ubicación.
 - La duración del calendario es una estimación de 60 minutos (`EVENT['minutes']`).
 - `validate.py` comprueba los dos `.ics` y que su hora coincida con `EVENT`.
 - La edición manual previa de `index.html` y `en.html` no llegaba a la web: `pages.yml`

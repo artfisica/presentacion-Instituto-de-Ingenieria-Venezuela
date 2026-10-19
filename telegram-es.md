@@ -1,7 +1,7 @@
 **De los datos abiertos al conocimiento compartido**
 *Computación, automatización e inteligencia artificial para investigar y aprender*
 
-**Miércoles 21 de octubre de 2026, 9:00 a. m. (hora de Venezuela, UTC−4).** Charla en línea. El enlace de conexión se anunciará aquí cuando lo confirme la organización.
+**Miércoles 21 de octubre de 2026, 9:00 a. m. (hora de Venezuela, UTC−4).** Charla en línea por las Salas Virtuales FORMATEC del Instituto de Ingeniería: https://fii.gob.ve/formatec/ (sala por confirmar).
 
 ¿Cuánto tiempo dedicamos a preparar herramientas, ordenar archivos, repetir cálculos o actualizar informes, antes de poder concentrarnos en lo que queremos investigar?
 

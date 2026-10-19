@@ -44,13 +44,18 @@ LINKS = {
 
 # Fecha y hora confirmadas por la organización el 19 de octubre de 2026.
 # Venezuela (America/Caracas) usa UTC−4 todo el año: 9:00 VET = 13:00 UTC = 15:00 en Suiza.
-# build.py genera con estos datos la cápsula de la portada, el pie de página y los
-# archivos .ics. El enlace de conexión sigue pendiente: cuando llegue, escríbelo en
-# 'link' y vuelve a ejecutar python3 web/build.py; no inventes uno.
+# build.py genera con estos datos la cápsula de la portada, el pie de página, las
+# versiones extensas y los archivos .ics. La conexión es por las Salas Virtuales
+# FORMATEC del Instituto de Ingeniería (enlace confirmado el 19 de octubre de 2026);
+# la sala concreta sigue pendiente: cuando la organización la indique, escribe su
+# nombre en 'room' y su enlace directo en 'room_link', y vuelve a ejecutar
+# python3 web/build.py. No inventes ni la sala ni su enlace.
 EVENT = {
  'start':'2026-10-21T09:00:00-04:00',
  'minutes':60,   # duración estimada para el calendario; ajústala si la organización indica otra
- 'link':None,    # p. ej. 'https://...'; None mientras no esté confirmado
+ 'link':'https://fii.gob.ve/formatec/',   # página de conexión: Salas Virtuales FORMATEC (cinco salas)
+ 'room':None,        # p. ej. 'Sala 4: Comunica'; None mientras la organización no la indique
+ 'room_link':None,   # p. ej. 'https://join.aula.la/rooms/...'; None mientras no esté confirmado
  'uid':'charla-instituto-ingenieria-2026-10-21@artfisica.github.io',
  'stamp':'20261019T000000Z',   # DTSTAMP fijo para que el .ics no cambie entre builds idénticos
 }
@@ -63,7 +68,8 @@ ES = {
  'event':'Instituto de Ingeniería · Venezuela · Charla en línea',
  'when':'Miércoles 21 de octubre de 2026 · 9:00 a. m. hora de Venezuela (UTC−4) · 13:00 UTC',
  'link_note':'Enlace de conexión: por confirmar con la organización',
- 'join':'Unirse a la charla',
+ 'join':'Conectarse: Salas Virtuales FORMATEC',
+ 'room_note':'sala por confirmar',
  'calendar':'Añadir al calendario',
  'ics':'charla.ics',
  'ics_summary':'De los datos abiertos al conocimiento compartido — charla de Arturo Sánchez Pineda (Instituto de Ingeniería, Venezuela)',
@@ -163,7 +169,7 @@ ES = {
  'footer':'Una charla para acercar recursos y personas.', 'repo_label':'Código de esta página',
  'credits_title':'Imágenes, fuentes y créditos',
  'credits':'Las fotografías y materiales se muestran como documentación de los proyectos. Foto de formación: ATLAS Collaboration / CERN, tomada del artículo enlazado. Equipo LAGO y lámina del Callejero: materiales del proyecto aportados por Arturo. Mapa: geometría de Natural Earth y datos del repositorio Reality Map. Tipografías IBM Plex Sans y Newsreader bajo SIL Open Font License. Los nombres de instituciones y plataformas identifican colaboraciones y recursos; no implican patrocinio de esta charla.',
- 'footer_note':'Material de consulta en español e inglés. Las condiciones de los servicios pueden cambiar; sus enlaces remiten a la documentación oficial. Charla: miércoles 21 de octubre de 2026, 9:00 a. m. hora de Venezuela. Enlace de conexión: por confirmar con la organización.',
+ 'footer_note':'Material de consulta en español e inglés. Las condiciones de los servicios pueden cambiar; sus enlaces remiten a la documentación oficial.',
  'skip':'Saltar al contenido'
 }
 
@@ -175,7 +181,8 @@ EN = {
  'event':'Instituto de Ingeniería · Venezuela · Online talk',
  'when':'Wednesday 21 October 2026 · 9:00 a.m. Venezuela time (UTC−4) · 13:00 UTC',
  'link_note':'Meeting link: to be confirmed with the organisers',
- 'join':'Join the talk',
+ 'join':'Join: FORMATEC virtual rooms',
+ 'room_note':'room to be confirmed',
  'calendar':'Add to calendar',
  'ics':'talk.ics',
  'ics_summary':'From Open Data to Shared Knowledge — talk by Arturo Sánchez Pineda (Instituto de Ingeniería, Venezuela)',
@@ -275,7 +282,7 @@ EN = {
  'footer':'A talk connecting resources and people.', 'repo_label':'This website’s code',
  'credits_title':'Images, sources and credits',
  'credits':'Photographs and materials document the projects. Teaching photograph: ATLAS Collaboration / CERN, from the linked article. LAGO equipment and street-inventory slide: project materials supplied by Arturo. Map: Natural Earth geometry and Reality Map repository data. IBM Plex Sans and Newsreader fonts are distributed under the SIL Open Font License. Institution and platform names identify collaborations and resources; they do not imply sponsorship of this talk.',
- 'footer_note':'Reference material in Spanish and English. Service conditions may change; resource links point to official documentation. Talk: Wednesday 21 October 2026, 9:00 a.m. Venezuela time. Meeting link: to be confirmed with the organisers.',
+ 'footer_note':'Reference material in Spanish and English. Service conditions may change; resource links point to official documentation.',
  'skip':'Skip to content'
 }
 
