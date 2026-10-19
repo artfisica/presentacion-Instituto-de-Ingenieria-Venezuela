@@ -21,6 +21,8 @@ El repositorio incluye los tres ejercicios. Para ejecutarlos localmente empieza 
 
 Charla en línea de Arturo Sánchez Pineda para el Instituto de Ingeniería, Venezuela.
 
+**Miércoles 21 de octubre de 2026, 9:00 a. m. hora de Venezuela (UTC−4; 13:00 UTC).** [Añadir al calendario](https://artfisica.github.io/presentacion-Instituto-de-Ingenieria-Venezuela/assets/charla.ics). El enlace de conexión lo comunicará la organización y se publicará también en la [página de la charla](https://artfisica.github.io/presentacion-Instituto-de-Ingenieria-Venezuela/).
+
 **Este mismo repositorio es tu punto de partida.** Puedes clonarlo, ejecutar los ejemplos y adaptarlos a tu tesis, clase o proyecto. Si puedes y quieres, llega a la charla con tu cuenta de GitHub creada.
 
 [Presentación en español](https://artfisica.github.io/presentacion-Instituto-de-Ingenieria-Venezuela/) · [English](https://artfisica.github.io/presentacion-Instituto-de-Ingenieria-Venezuela/en.html) · [Guía de ejercicios](ejercicios/README.md)
@@ -99,9 +101,13 @@ Sustituye los datos, formula una pregunta, adapta el script y documenta tus fuen
 
 **Para actualizar el repositorio ya publicado, sigue [ACTUALIZAR.md](ACTUALIZAR.md).** [PUBLICAR.md](PUBLICAR.md) conserva las instrucciones de la primera publicación. La página se puede revisar localmente abriendo `web/index.html`. El anuncio ampliado está en `telegram-es.md`.
 
+La fecha y la hora de la charla están en `EVENT`, en `web/content/site.py`; de ahí salen la cápsula de la portada, el pie de página, las versiones extensas y los archivos `web/assets/charla.ics` y `web/assets/talk.ics`. Cuando la organización envíe el enlace de conexión, escríbelo en `EVENT['link']`, ejecuta `python3 web/build.py` y sube el cambio. No edites `web/index.html` ni `web/en.html` a mano: `pages.yml` los regenera desde `site.py` en cada publicación.
+
 Las versiones extensas están en `web/content/long-version-es.md` y `web/content/long-version-en.md`. Créditos y referencias en [SOURCES.md](SOURCES.md). Para editar la web, cambia `web/content/site.py` y ejecuta `python3 web/build.py`.
 
 ## English quick start
+
+The talk takes place on Wednesday 21 October 2026 at 9:00 a.m. Venezuela time (UTC−4; 13:00 UTC): [add it to your calendar](https://artfisica.github.io/presentacion-Instituto-de-Ingenieria-Venezuela/assets/talk.ics). The organisers will announce the meeting link.
 
 This same repository contains the presentation and three practical exercises: analyse a CSV, create a PNG chart and build a PDF from Markdown and local images. Clone for local use, or fork to edit and run Actions in your own account. Start with `python3 scripts/analizar.py`; install `requirements.txt` in a virtual environment for the chart and PDF. Instructions in [ejercicios/README.md](ejercicios/README.md) include an English summary. Changing the Markdown **or an image** triggers a new PDF build. Download outputs from the completed workflow's **Artifacts** section. The teaching workflows never push commits or publish a website.
 

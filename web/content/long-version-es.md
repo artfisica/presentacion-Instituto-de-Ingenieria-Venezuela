@@ -2,6 +2,8 @@
 
 Instituto de Ingeniería · Venezuela · Charla en línea
 
+Miércoles 21 de octubre de 2026 · 9:00 a. m. hora de Venezuela (UTC−4) · 13:00 UTC · Enlace de conexión: por confirmar con la organización
+
 **Te llevas un repositorio que funciona.**
 
 Este mismo repositorio reúne tres ejercicios: analizar datos, crear un gráfico y generar un PDF automáticamente desde Markdown e imágenes. Puedes clonarlo, ejecutar los scripts y empezar tus propios prototipos. Si puedes y quieres, llega a la charla con tu cuenta de GitHub creada.

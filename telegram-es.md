@@ -1,6 +1,8 @@
 **De los datos abiertos al conocimiento compartido**
 *Computación, automatización e inteligencia artificial para investigar y aprender*
 
+**Miércoles 21 de octubre de 2026, 9:00 a. m. (hora de Venezuela, UTC−4).** Charla en línea. El enlace de conexión se anunciará aquí cuando lo confirme la organización.
+
 ¿Cuánto tiempo dedicamos a preparar herramientas, ordenar archivos, repetir cálculos o actualizar informes, antes de poder concentrarnos en lo que queremos investigar?
 
 Esta charla en línea para el **Instituto de Ingeniería de Venezuela** propone una forma práctica de conectar esas tareas. Veremos cómo utilizar tecnologías accesibles para que estudiantes, docentes e investigadores puedan comenzar un proyecto, colaborar y producir resultados que otras personas puedan comprender, comprobar y reutilizar.
@@ -20,3 +22,6 @@ La charla conectará estas herramientas con experiencias de ATLAS Open Data, dir
 **Sobre el ponente:** Arturo Sánchez Pineda es físico venezolano formado en la ULA, con estudios en París y doctorado en Nápoles. Integró ATLAS durante el descubrimiento del bosón de Higgs, fue administrador de sistemas del experimento en el CERN y es cofundador de ATLAS Open Data. Tras su trayectoria investigadora vinculada a ICTP e INFN, hoy dirige Infraestructura y Operaciones de TI en INAIT y continúa produciendo conocimiento científico y educativo desde el sector privado.
 
 **Para prepararte, si puedes y quieres, llega con tu cuenta de GitHub creada.** Podrás trabajar con los ejemplos desde el navegador o descargar el repositorio para ejecutarlos en tu ordenador.
+
+Página de la charla, en español e inglés: https://artfisica.github.io/presentacion-Instituto-de-Ingenieria-Venezuela/
+Añadir al calendario: https://artfisica.github.io/presentacion-Instituto-de-Ingenieria-Venezuela/assets/charla.ics

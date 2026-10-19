@@ -3,6 +3,8 @@
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
+from datetime import datetime, timezone
+from content.site import EVENT
 import re
 
 ROOT = Path(__file__).resolve().parent
@@ -56,10 +58,19 @@ def main():
     css = ROOT/'assets/style.css'
     for ref in re.findall(r'url\([\'"]?([^\)\'\"]+)', css.read_text()):
         assert (css.parent/ref).is_file(), f'Missing CSS dependency: {ref}'
+    calendars = sorted((ROOT/'assets').glob('*.ics'))
+    start = datetime.fromisoformat(EVENT['start']).astimezone(timezone.utc).strftime('%Y%m%dT%H%M%SZ').encode()
+    assert len(calendars) == 2, 'Expected charla.ics and talk.ics; run build.py first'
+    for ics in calendars:
+        raw = ics.read_bytes()
+        assert raw.startswith(b'BEGIN:VCALENDAR\r\n') and raw.endswith(b'END:VCALENDAR\r\n'), f'{ics.name}: incomplete iCalendar file'
+        assert b'\n' not in raw.replace(b'\r\n', b''), f'{ics.name}: content lines must end with CRLF'
+        assert all(len(line) <= 75 for line in raw.split(b'\r\n')), f'{ics.name}: a content line exceeds 75 octets'
+        assert b'DTSTART:' + start in raw and b'DTEND:' in raw, f'{ics.name}: start time differs from EVENT in content/site.py'
     asset_bytes = sum(p.stat().st_size for p in (ROOT/'assets').rglob('*') if p.is_file())
     assert asset_bytes <= 600_000, f'Web assets exceed 600 kB: {asset_bytes:,} bytes'
     print(f'Web asset budget: {asset_bytes:,} / 600,000 bytes (PDF TTF fonts are not served).')
-    print(f'OK: two languages, {project_count} project cards, {count} local references, image descriptions and font files.')
+    print(f'OK: two languages, {project_count} project cards, {count} local references, image descriptions, font files and {len(calendars)} calendar files.')
     print('External URLs are editorial references; this check does not request them.')
 
 if __name__ == '__main__':

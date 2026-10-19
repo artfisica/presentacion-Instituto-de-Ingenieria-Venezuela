@@ -29,7 +29,8 @@ Pasos exactos en `ACTUALIZAR.md`. El asistente no realiza estas operaciones.
 ## Siguientes tandas, aún no implementadas
 
 - Tarjeta social JPG 1200×630, Twitter card y Person JSON-LD.
-- Fecha/enlace reales y calendario ICS cuando los confirme la organización.
+- Enlace de conexión real cuando lo confirme la organización: `EVENT['link']` en
+  `web/content/site.py`, seguido de `python3 web/build.py`.
 - Devcontainer Python 3.12, notebook y comprobación del entorno en un comando.
 - Cuarto ejercicio de publicación propia y URL base derivada de la copia.
 - Galería de participantes, validación de aportes y ciclo completo de PR.
@@ -69,6 +70,21 @@ Galería, Discussions y mantenimiento periódico quedan para después de la char
 - `ejemplos/salida-esperada/informe.pdf` se regenera con este cambio.
 - Queda disponible, si se desea, comparar en Actions una ejecución nueva con la
   salida de referencia; conviene generar esa referencia en el mismo entorno.
+
+## Fecha confirmada: aplicada
+
+- Charla confirmada para el miércoles 21 de octubre de 2026 a las 9:00 a. m., hora de
+  Venezuela (UTC−4; 13:00 UTC). Los datos viven solo en `EVENT`, en
+  `web/content/site.py`; `build.py` genera con ellos la cápsula de la portada, el
+  pie de página, las versiones extensas y los calendarios `charla.ics` y `talk.ics`
+  en `web/assets/` (hora en UTC, DTSTAMP fijo, líneas plegadas a 75 octetos).
+- El enlace de conexión sigue pendiente. Al escribirlo en `EVENT['link']`, la
+  cápsula muestra «Unirse a la charla», y el `.ics` lo usa como ubicación.
+- La duración del calendario es una estimación de 60 minutos (`EVENT['minutes']`).
+- `validate.py` comprueba los dos `.ics` y que su hora coincida con `EVENT`.
+- La edición manual previa de `index.html` y `en.html` no llegaba a la web: `pages.yml`
+  regenera ambos desde `site.py` antes de publicar. Queda documentado en README.
+- README y `telegram-es.md` incluyen la fecha, la hora y el enlace al calendario.
 
 ## Documentos de entrega ya cumplidos
 

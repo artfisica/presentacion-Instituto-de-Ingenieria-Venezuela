@@ -13,7 +13,11 @@ Edit web/content/site.py and run python3 web/build.py (standard library only).
 All imagery and fonts are local. No tracking, external JS or runtime dependencies.
 Preserve accurate distinctions: LAGO is a proposal; the Nobel went to Englert
 and Higgs; engineering studies at ULA must not become an unsupported second degree.
-Never invent an event date, time or meeting link.
+The talk is confirmed for Wednesday 21 October 2026 at 09:00 America/Caracas
+(UTC−4, 13:00 UTC). That data lives only in EVENT in web/content/site.py and
+feeds the hero chip, footer, long versions and the .ics files. The meeting link is
+still pending: never invent it. Never hand-edit web/index.html or web/en.html;
+pages.yml regenerates both from site.py on every deploy.
 
 The root is also the participant repository. Keep datos/, ejemplos/, imagenes/,
 scripts/ and ejercicios/ easy to navigate. Three teaching workflows generate

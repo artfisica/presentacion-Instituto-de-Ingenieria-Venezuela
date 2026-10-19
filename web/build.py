@@ -1,14 +1,52 @@
 #!/usr/bin/env python3
 """Generate the two HTML editions using only Python's standard library."""
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from html import escape
-from content.site import ES, EN, LINKS
+from content.site import ES, EN, LINKS, EVENT
 
 ROOT = Path(__file__).resolve().parent
 BASE = 'https://artfisica.github.io/presentacion-Instituto-de-Ingenieria-Venezuela/'
 
 def paragraphs(items):
     return ''.join(f'<p>{p}</p>' for p in items)
+
+def event_chip(c):
+    """Date, time and calendar link; the meeting link replaces the pending note once EVENT['link'] is set."""
+    link = f'<a href="{escape(EVENT["link"], quote=True)}">{c["join"]} ↗</a>' if EVENT.get('link') else c['link_note']
+    return (f'<p class="event-chip"><time datetime="{EVENT["start"]}">{c["when"]}</time> · '
+            f'<a href="assets/{c["ics"]}" download>{c["calendar"]} ↓</a> · {link}</p>')
+
+def ics_fold(line):
+    """RFC 5545: content lines are at most 75 octets; continuation lines start with one space."""
+    parts, current = [], ''
+    for ch in line:
+        if len((current + ch).encode('utf-8')) > 75:
+            parts.append(current)
+            current = ' ' + ch
+        else:
+            current += ch
+    parts.append(current)
+    return '\r\n'.join(parts)
+
+def ics_text(value):
+    return value.replace('\\', '\\\\').replace(';', '\\;').replace(',', '\\,').replace('\n', '\\n')
+
+def calendar(c):
+    """One VEVENT in UTC, so every calendar shows the talk in the viewer's own time zone."""
+    start = datetime.fromisoformat(EVENT['start']).astimezone(timezone.utc)
+    end = start + timedelta(minutes=EVENT['minutes'])
+    stamp = lambda d: d.strftime('%Y%m%dT%H%M%SZ')
+    page = BASE + ('' if c['lang'] == 'es' else 'en.html')
+    description = c['ics_description'] + '\n' + (EVENT['link'] if EVENT.get('link') else c['link_note']) + '\n' + page + '\n' + LINKS['repo']
+    lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
+             f'PRODID:-//Arturo Sanchez Pineda//presentacion-Instituto-de-Ingenieria-Venezuela//{c["lang"].upper()}',
+             'BEGIN:VEVENT', f'UID:{EVENT["uid"]}', f'DTSTAMP:{EVENT["stamp"]}',
+             f'DTSTART:{stamp(start)}', f'DTEND:{stamp(end)}', 'STATUS:CONFIRMED',
+             f'SUMMARY:{ics_text(c["ics_summary"])}', f'DESCRIPTION:{ics_text(description)}',
+             f'LOCATION:{ics_text(EVENT["link"] if EVENT.get("link") else c["ics_location"])}',
+             f'URL:{page}', 'END:VEVENT', 'END:VCALENDAR']
+    return '\r\n'.join(ics_fold(line) for line in lines) + '\r\n'
 
 def project(p, c):
     links = ''.join(f'<a href="{escape(LINKS[key], quote=True)}">{escape(label)} <span aria-hidden="true">↗</span></a>' for label, key in p['links'])
@@ -52,7 +90,7 @@ def render(c):
 <a class="skip" href="#main">{c['skip']}</a>
 <header class="topbar"><nav class="wrap nav" aria-label="{'Principal' if lang=='es' else 'Main'}"><a class="brand" href="index.html"><span aria-hidden="true">[ a / s ]</span> Arturo Sánchez Pineda</a><div class="navlinks"><div class="navsections">{nav}</div><div class="language" aria-label="{'Idioma' if lang=='es' else 'Language'}">{language}</div></div></nav></header>
 <main id="main">
-<section class="hero wrap" aria-labelledby="hero-title"><div class="eyebrow">{c['event']}</div><h1 id="hero-title">{c['hero']}</h1><p class="event-chip">{'Fecha y enlace: por confirmar' if lang == 'es' else 'Date and meeting link: to be confirmed'}</p>
+<section class="hero wrap" aria-labelledby="hero-title"><div class="eyebrow">{c['event']}</div><h1 id="hero-title">{c['hero']}</h1>{event_chip(c)}
 <div class="hero-bottom"><div><p class="subtitle">{c['subtitle']}</p><div class="actions"><a class="button" href="#proyectos">{c['cta']} <span aria-hidden="true">↘</span></a><a class="button secondary" href="#charla">{c['read']}</a></div></div><p class="speaker"><strong>Arturo Sánchez Pineda</strong>{c['role']}<br>CERN / ATLAS · INAIT · Creative Commons</p></div>
 <aside class="takeaway"><div><h2>{c['takeaway_title']}</h2><p>{c['takeaway_text']}</p></div><a class="button" href="{LINKS['repo']}#ejercicios">{c['takeaway_cta']} ↓</a></aside>
 <figure><div class="hero-image"><img src="assets/atlas-venezuela.webp" width="1600" height="799" alt="{escape(c['photo_alt'],quote=True)}" fetchpriority="high"><span class="image-label">{c['photo_label']}</span></div><figcaption class="caption">{c['photo_caption']} <a href="{LINKS['theses']}">{'Fuente' if lang=='es' else 'Source'} ↗</a></figcaption></figure></section>
@@ -75,7 +113,8 @@ def export_text(c):
         s=re.sub(r'<a href="([^"]+)">(.*?)</a>',r'[\2](\1)',s)
         s=s.replace('<strong>','**').replace('</strong>','**').replace('<br>',' ')
         return re.sub('<[^>]+>','',s)
-    sections=[f'# {c["title"]}',c['event'],f'**{c["takeaway_title"]}**',c['takeaway_text'], '\n\n'.join(map(plain,c['intro']))]
+    when = f'{c["when"]} · ' + (EVENT['link'] if EVENT.get('link') else c['link_note'])
+    sections=[f'# {c["title"]}',c['event'],when,f'**{c["takeaway_title"]}**',c['takeaway_text'], '\n\n'.join(map(plain,c['intro']))]
     for p in c['projects']:
         sections += [f'## {p["title"]}',p['text'],p['detail'],' · '.join(f'[{label}]({LINKS[key]})' for label,key in p['links'])]
     sections += [f'## {plain(c["method_title"])}','\n\n'.join(map(plain,c['method_body'])),f'## {plain(c["resources_title"])}','\n\n'.join(map(plain,c['resources_body'])),c['closing'], '## Arturo Sánchez Pineda','\n\n'.join(map(plain,c['bio']))]
@@ -85,4 +124,5 @@ if __name__ == '__main__':
     for c in (ES,EN):
         (ROOT/c['filename']).write_text(render(c),encoding='utf-8')
         (ROOT/'content'/f'long-version-{c["lang"]}.md').write_text(export_text(c),encoding='utf-8')
-    print('Generated index.html, en.html and both long-form Markdown editions.')
+        (ROOT/'assets'/c['ics']).write_bytes(calendar(c).encode('utf-8'))
+    print('Generated index.html, en.html, both long-form Markdown editions and the two .ics calendar files.')

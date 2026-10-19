@@ -2,6 +2,8 @@
 
 Instituto de Ingeniería · Venezuela · Online talk
 
+Wednesday 21 October 2026 · 9:00 a.m. Venezuela time (UTC−4) · 13:00 UTC · Meeting link: to be confirmed with the organisers
+
 **Take home a working repository.**
 
 This same repository contains three exercises: analyse data, create a chart and automatically generate a PDF from Markdown and images. Clone it, run the scripts and begin prototyping your own projects. If you can and would like to, create your GitHub account before the talk.

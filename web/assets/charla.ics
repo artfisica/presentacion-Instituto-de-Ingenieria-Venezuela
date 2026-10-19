@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//Arturo Sanchez Pineda//presentacion-Instituto-de-Ingenieria-Venez
+ uela//ES
+BEGIN:VEVENT
+UID:charla-instituto-ingenieria-2026-10-21@artfisica.github.io
+DTSTAMP:20261019T000000Z
+DTSTART:20261021T130000Z
+DTEND:20261021T140000Z
+STATUS:CONFIRMED
+SUMMARY:De los datos abiertos al conocimiento compartido — charla de Artu
+ ro Sánchez Pineda (Instituto de Ingeniería\, Venezuela)
+DESCRIPTION:Computación\, automatización e inteligencia artificial para i
+ nvestigar y aprender. Charla en línea de Arturo Sánchez Pineda para el I
+ nstituto de Ingeniería\, Venezuela. 9:00 a. m. hora de Venezuela (UTC−4
+ ).\nEnlace de conexión: por confirmar con la organización\nhttps://artfi
+ sica.github.io/presentacion-Instituto-de-Ingenieria-Venezuela/\nhttps://gi
+ thub.com/artfisica/presentacion-Instituto-de-Ingenieria-Venezuela
+LOCATION:En línea
+URL:https://artfisica.github.io/presentacion-Instituto-de-Ingenieria-Venezu
+ ela/
+END:VEVENT
+END:VCALENDAR

@@ -42,12 +42,33 @@ LINKS = {
  'repo':'https://github.com/artfisica/presentacion-Instituto-de-Ingenieria-Venezuela'
 }
 
+# Fecha y hora confirmadas por la organización el 19 de octubre de 2026.
+# Venezuela (America/Caracas) usa UTC−4 todo el año: 9:00 VET = 13:00 UTC = 15:00 en Suiza.
+# build.py genera con estos datos la cápsula de la portada, el pie de página y los
+# archivos .ics. El enlace de conexión sigue pendiente: cuando llegue, escríbelo en
+# 'link' y vuelve a ejecutar python3 web/build.py; no inventes uno.
+EVENT = {
+ 'start':'2026-10-21T09:00:00-04:00',
+ 'minutes':60,   # duración estimada para el calendario; ajústala si la organización indica otra
+ 'link':None,    # p. ej. 'https://...'; None mientras no esté confirmado
+ 'uid':'charla-instituto-ingenieria-2026-10-21@artfisica.github.io',
+ 'stamp':'20261019T000000Z',   # DTSTAMP fijo para que el .ics no cambie entre builds idénticos
+}
+
 ES = {
  'lang':'es', 'filename':'index.html', 'other':'en.html', 'otherlabel':'Read in English',
  'title':'De los datos abiertos al conocimiento compartido',
- 'description':'Charla en línea de Arturo Sánchez Pineda para el Instituto de Ingeniería, Venezuela. Computación, automatización e inteligencia artificial para investigar y aprender.',
+ 'description':'Charla en línea de Arturo Sánchez Pineda para el Instituto de Ingeniería, Venezuela: miércoles 21 de octubre de 2026, 9:00 a. m. hora de Venezuela. Computación, automatización e inteligencia artificial para investigar y aprender.',
  'nav':['La charla','Proyectos','Recursos','Sobre Arturo'],
  'event':'Instituto de Ingeniería · Venezuela · Charla en línea',
+ 'when':'Miércoles 21 de octubre de 2026 · 9:00 a. m. hora de Venezuela (UTC−4) · 13:00 UTC',
+ 'link_note':'Enlace de conexión: por confirmar con la organización',
+ 'join':'Unirse a la charla',
+ 'calendar':'Añadir al calendario',
+ 'ics':'charla.ics',
+ 'ics_summary':'De los datos abiertos al conocimiento compartido — charla de Arturo Sánchez Pineda (Instituto de Ingeniería, Venezuela)',
+ 'ics_description':'Computación, automatización e inteligencia artificial para investigar y aprender. Charla en línea de Arturo Sánchez Pineda para el Instituto de Ingeniería, Venezuela. 9:00 a. m. hora de Venezuela (UTC−4).',
+ 'ics_location':'En línea',
  'hero':'Más cerca<br>de la <em>ciencia.</em>',
  'subtitle':'De los datos abiertos al conocimiento compartido: computación, automatización e inteligencia artificial para investigar y aprender.',
  'role':'Físico · Infraestructura · Educación abierta',
@@ -142,16 +163,24 @@ ES = {
  'footer':'Una charla para acercar recursos y personas.', 'repo_label':'Código de esta página',
  'credits_title':'Imágenes, fuentes y créditos',
  'credits':'Las fotografías y materiales se muestran como documentación de los proyectos. Foto de formación: ATLAS Collaboration / CERN, tomada del artículo enlazado. Equipo LAGO y lámina del Callejero: materiales del proyecto aportados por Arturo. Mapa: geometría de Natural Earth y datos del repositorio Reality Map. Tipografías IBM Plex Sans y Newsreader bajo SIL Open Font License. Los nombres de instituciones y plataformas identifican colaboraciones y recursos; no implican patrocinio de esta charla.',
- 'footer_note':'Material de consulta en español e inglés. Las condiciones de los servicios pueden cambiar; sus enlaces remiten a la documentación oficial. Fecha y enlace de conexión de la charla: por confirmar con la organización.',
+ 'footer_note':'Material de consulta en español e inglés. Las condiciones de los servicios pueden cambiar; sus enlaces remiten a la documentación oficial. Charla: miércoles 21 de octubre de 2026, 9:00 a. m. hora de Venezuela. Enlace de conexión: por confirmar con la organización.',
  'skip':'Saltar al contenido'
 }
 
 EN = {
  'lang':'en', 'filename':'en.html', 'other':'index.html', 'otherlabel':'Leer en español',
  'title':'From Open Data to Shared Knowledge',
- 'description':'An online talk by Arturo Sánchez Pineda for Instituto de Ingeniería, Venezuela. Computing, automation and artificial intelligence for research and education.',
+ 'description':'An online talk by Arturo Sánchez Pineda for Instituto de Ingeniería, Venezuela: Wednesday 21 October 2026, 9:00 a.m. Venezuela time. Computing, automation and artificial intelligence for research and education.',
  'nav':['The talk','Projects','Resources','About Arturo'],
  'event':'Instituto de Ingeniería · Venezuela · Online talk',
+ 'when':'Wednesday 21 October 2026 · 9:00 a.m. Venezuela time (UTC−4) · 13:00 UTC',
+ 'link_note':'Meeting link: to be confirmed with the organisers',
+ 'join':'Join the talk',
+ 'calendar':'Add to calendar',
+ 'ics':'talk.ics',
+ 'ics_summary':'From Open Data to Shared Knowledge — talk by Arturo Sánchez Pineda (Instituto de Ingeniería, Venezuela)',
+ 'ics_description':'Computing, automation and artificial intelligence for research and education. An online talk by Arturo Sánchez Pineda for Instituto de Ingeniería, Venezuela. 9:00 a.m. Venezuela time (UTC−4).',
+ 'ics_location':'Online',
  'hero':'Bringing science<br><em>closer.</em>',
  'subtitle':'From open data to shared knowledge: computing, automation and artificial intelligence for research and education.',
  'role':'Physics · Infrastructure · Open education',
@@ -246,7 +275,7 @@ EN = {
  'footer':'A talk connecting resources and people.', 'repo_label':'This website’s code',
  'credits_title':'Images, sources and credits',
  'credits':'Photographs and materials document the projects. Teaching photograph: ATLAS Collaboration / CERN, from the linked article. LAGO equipment and street-inventory slide: project materials supplied by Arturo. Map: Natural Earth geometry and Reality Map repository data. IBM Plex Sans and Newsreader fonts are distributed under the SIL Open Font License. Institution and platform names identify collaborations and resources; they do not imply sponsorship of this talk.',
- 'footer_note':'Reference material in Spanish and English. Service conditions may change; resource links point to official documentation. Talk date and connection link: to be confirmed with the organisers.',
+ 'footer_note':'Reference material in Spanish and English. Service conditions may change; resource links point to official documentation. Talk: Wednesday 21 October 2026, 9:00 a.m. Venezuela time. Meeting link: to be confirmed with the organisers.',
  'skip':'Skip to content'
 }
 
