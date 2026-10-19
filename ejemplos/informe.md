@@ -21,3 +21,6 @@ Los datos de `datos/mediciones.csv` son ficticios. El análisis inicial tiene se
 Sustituye esta sección por tu pregunta, fuentes, resultados y limitaciones. La automatización prepara el documento; tú revisas su contenido.
 
 Fuente de la fotografía: [artículo de ATLAS sobre educación y datos abiertos](https://atlas.cern/updates/blog/HEP-education-worldwide-with-atlas-open-data).
+
+ ---- 
+ fin
