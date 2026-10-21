@@ -1,6 +1,6 @@
 # Mi primer informe reproducible
 
-**Autor:** escribe aquí tu nombre. **Proyecto:** una pregunta que quieras investigar.
+**Autor:** Todo el equipo (Octubre 21). **Proyecto:** una pregunta que quieras investigar.
 
 ## Una pregunta, un punto de partida
 
