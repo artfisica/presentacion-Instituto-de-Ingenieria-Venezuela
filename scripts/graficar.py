@@ -18,7 +18,9 @@ def crear_grafico(entrada=ROOT/'datos/mediciones.csv', salida=ROOT/'resultados/g
     nombres = [fila['lugar'] for fila in datos]
     valores = [fila['valor'] for fila in datos]
     fig, ax = plt.subplots(figsize=figsize, layout='constrained')
-    barras = ax.barh(nombres, valores, color='#144de8')
+    posiciones = range(len(datos))
+    barras = ax.barh(posiciones, valores, color='#144de8')
+    ax.set_yticks(posiciones, labels=nombres)
     ax.bar_label(barras, padding=5, fmt='%g')
     ax.invert_yaxis()
     ax.set_title('Comparar para comprender', loc='left', fontsize=20, pad=22)

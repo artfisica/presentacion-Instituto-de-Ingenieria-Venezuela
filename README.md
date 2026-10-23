@@ -97,9 +97,11 @@ Sustituye los datos, formula una pregunta, adapta el script y documenta tus fuen
 
 ## Para Arturo
 
-**Para aplicar solo la reducción de fuentes y correcciones pequeñas, sigue [PARCHE-FUENTES.md](PARCHE-FUENTES.md).** Las fuentes PDF incluidas ocupan 536 kB; su repertorio y procedencia están en [fuentes/README.md](fuentes/README.md).
-
-**Para actualizar el repositorio ya publicado, sigue [ACTUALIZAR.md](ACTUALIZAR.md).** [PUBLICAR.md](PUBLICAR.md) conserva las instrucciones de la primera publicación. La página se puede revisar localmente abriendo `web/index.html`. El anuncio ampliado está en `telegram-es.md`.
+La guía vigente es [MANTENIMIENTO.md](MANTENIMIENTO.md): comprobación local,
+edición de contenido, actualización de referencias y publicación por Arturo.
+Las guías de entregas anteriores se conservan como documentación histórica.
+Las fuentes PDF incluidas ocupan 536 kB; su repertorio y procedencia están en
+[fuentes/README.md](fuentes/README.md). El anuncio ampliado está en `telegram-es.md`.
 
 La fecha y la hora de la charla están en `EVENT`, en `web/content/site.py`; de ahí salen la cápsula de la portada, el pie de página, las versiones extensas y los archivos `web/assets/charla.ics` y `web/assets/talk.ics`. La conexión (`EVENT['link']`) es la página de Salas Virtuales FORMATEC; cuando la organización indique la sala, escribe su nombre en `EVENT['room']` y su enlace directo en `EVENT['room_link']`, ejecuta `python3 web/build.py` y sube el cambio. No edites `web/index.html` ni `web/en.html` a mano: `pages.yml` los regenera desde `site.py` en cada publicación.
 

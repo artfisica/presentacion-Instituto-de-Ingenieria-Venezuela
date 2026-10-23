@@ -1,2 +1,5 @@
 # Los calendarios .ics exigen finales de linea CRLF (RFC 5545): sin conversion.
 *.ics -text
+
+# Los PDF generados son binarios; no convertir finales de linea ni mostrar diff de texto.
+*.pdf binary

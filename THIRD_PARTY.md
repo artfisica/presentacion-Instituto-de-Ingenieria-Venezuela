@@ -3,6 +3,7 @@
 | Material | Crédito y alcance |
 |---|---|
 | `imagenes/actividad-atlas.jpg`, `web/assets/atlas-venezuela.webp` y su reproducción en el PDF y su miniatura | ATLAS Collaboration / CERN. [Fuente original](https://atlas.cern/updates/blog/HEP-education-worldwide-with-atlas-open-data). No se relicencian como CC BY 4.0 por esta entrega. |
+| `imagenes/Instalaciones-del-Instituto-de-Ingenieria-FIIIDT.webp` | Fotografía del Instituto utilizada en el PDF. Fuente, autoría y condiciones de reutilización pendientes de documentar con Arturo; no se atribuye a Arturo ni se declara cubierta por CC BY 4.0. |
 | `web/assets/lago-mini.webp`, `web/assets/callejero.webp` | Materiales de proyectos aportados por Arturo; se conservan los créditos. No se presupone propiedad individual de todos sus componentes. |
 | `web/assets/reality-map.webp` | Geometría Natural Earth y datos de Reality Map. Se conserva la procedencia descrita en SOURCES.md. |
 | `web/assets/fonts/` | IBM Plex Sans y Newsreader, SIL Open Font License; aviso incluido en `OFL.txt`. |
