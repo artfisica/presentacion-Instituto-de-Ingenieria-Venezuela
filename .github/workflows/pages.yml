@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'web/**'
+      - 'tests/test_web.py'
       - '.github/workflows/pages.yml' 
   workflow_dispatch:
 
@@ -21,6 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+      - name: Test event date generation
+        run: python3 -m unittest discover -s tests -p test_web.py -v
       - name: Generate both languages
         run: python3 web/build.py
       - name: Validate local files and links

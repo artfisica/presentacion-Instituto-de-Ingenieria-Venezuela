@@ -3,10 +3,39 @@
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from html import escape
-from content.site import ES, EN, LINKS, EVENT
+from zoneinfo import ZoneInfo
+if __package__:
+    from .content.site import ES, EN, LINKS, EVENT
+else:
+    from content.site import ES, EN, LINKS, EVENT
 
 ROOT = Path(__file__).resolve().parent
 BASE = 'https://artfisica.github.io/presentacion-Instituto-de-Ingenieria-Venezuela/'
+
+def event_content(c):
+    """Format every displayed event date from EVENT, independent of system locale."""
+    local = datetime.fromisoformat(EVENT['start']).astimezone(ZoneInfo('America/Caracas'))
+    utc = local.astimezone(timezone.utc)
+    hour = local.hour % 12 or 12
+    if c['lang'] == 'es':
+        weekdays = ('lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo')
+        months = ('enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre')
+        date = f'{weekdays[local.weekday()]} {local.day} de {months[local.month-1]} de {local.year}'
+        period = 'a. m.' if local.hour < 12 else 'p. m.'
+        time = f'{hour}:{local.minute:02d} {period} hora de Venezuela'
+    else:
+        weekdays = ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')
+        months = ('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December')
+        date = f'{weekdays[local.weekday()]} {local.day} {months[local.month-1]} {local.year}'
+        period = 'a.m.' if local.hour < 12 else 'p.m.'
+        time = f'{hour}:{local.minute:02d} {period} Venezuela time'
+    offset_minutes = int(local.utcoffset().total_seconds() / 60)
+    hours, minutes = divmod(abs(offset_minutes), 60)
+    offset = f'UTC{"−" if offset_minutes < 0 else "+"}{hours}' + (f':{minutes:02d}' if minutes else '')
+    values = {'date': date, 'time': time, 'offset': offset}
+    return {**c, 'when': f'{date[0].upper() + date[1:]} · {time} ({offset}) · {utc:%H:%M} UTC',
+            'description': c['description'].format(**values),
+            'ics_description': c['ics_description'].format(**values)}
 
 def paragraphs(items):
     return ''.join(f'<p>{p}</p>' for p in items)
@@ -32,6 +61,7 @@ def connection(c, html=False):
 
 def event_chip(c):
     """Date, time, calendar download and the connection details."""
+    c = event_content(c)
     return (f'<p class="event-chip"><time datetime="{EVENT["start"]}">{c["when"]}</time> · '
             f'<a href="assets/{c["ics"]}" download>{c["calendar"]} ↓</a> · {connection(c, html=True)}</p>')
 
@@ -52,6 +82,7 @@ def ics_text(value):
 
 def calendar(c):
     """One VEVENT in UTC, so every calendar shows the talk in the viewer's own time zone."""
+    c = event_content(c)
     start = datetime.fromisoformat(EVENT['start']).astimezone(timezone.utc)
     end = start + timedelta(minutes=EVENT['minutes'])
     stamp = lambda d: d.strftime('%Y%m%dT%H%M%SZ')
@@ -84,6 +115,7 @@ def project(p, c):
     </article>'''
 
 def render(c):
+    c = event_content(c)
     lang=c['lang']
     nav=''.join(f'<a href="#{anchor}">{label}</a>' for anchor,label in zip(['charla','proyectos','recursos','arturo'],c['nav']))
     language_parts=[]
@@ -126,6 +158,7 @@ def render(c):
 
 def export_text(c):
     """Provide the complete long version as editable Markdown too."""
+    c = event_content(c)
     import re
     def plain(s):
         s=re.sub(r'<a href="([^"]+)">(.*?)</a>',r'[\2](\1)',s)
